@@ -1,14 +1,18 @@
-import { Outlet } from "react-router-dom"
-
+import { Outlet } from 'react-router-dom';
+import Navber from '../Components/Sheard/Navber/Navber';
+import Footer from '../Components/Sheard/Footer/Footer';
 
 function MainLayout() {
   return (
     <div>
-      Main Layout 
+      <Navber />
+      <div className="min-h-[89vh]">
         <Outlet />
-      Footer 
+      </div>
+
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default MainLayout
+export default MainLayout;
