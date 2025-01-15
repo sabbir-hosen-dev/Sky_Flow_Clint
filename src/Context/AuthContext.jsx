@@ -33,6 +33,8 @@ const AuthContextProvider = ({children}) => {
             .then(() => {
               setUser(newUser);
               setLoadding(false);
+
+              
             })
             .catch(err => {
               console.error(err.message);

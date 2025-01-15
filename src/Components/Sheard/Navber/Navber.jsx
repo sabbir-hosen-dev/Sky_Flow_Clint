@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import logo from '../../../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import ThemeTogole from '../../ThemeTogole/ThemeTogole';
+import useAuthContext from '../../../Hooks/useAuthContext';
+import { axiosInt } from '../../../Hooks/useAxios';
+import toast from 'react-hot-toast';
 
 function Navber({ states }) {
-
-  const {menuOpen, setMenuOpen,userDropdownOpen, setUserDropdownOpen} = states
+  const { menuOpen, setMenuOpen, userDropdownOpen, setUserDropdownOpen } =
+    states;
+  const { user, logOut, setUser } = useAuthContext();
 
   const [isSticky, setIsSticky] = useState(false);
 
@@ -18,6 +22,25 @@ function Navber({ states }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  //logout function
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        axiosInt
+          .post('/logout')
+          .then(() => console.log('hi'))
+          .catch(err => console.log(err));
+        setUser({
+          ...user,
+          name: '',
+          email: '',
+          photo: '',
+        });
+        toast.success('user Log Out');
+      })
+      .catch(err => toast.error(err.message));
+  };
 
   return (
     <nav
@@ -34,59 +57,71 @@ function Navber({ states }) {
           </span>
         </Link>
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <div className=" ">
-            <ThemeTogole />
-          </div>
-
+          {!user.email && <ThemeTogole />}
           {/* User Dropdown */}
-          <div className="relative">
-            <button
-              type="button"
-              className="flex text-sm  bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              onClick={() => setUserDropdownOpen(!userDropdownOpen)}>
-              <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
-                alt="user photo"
-              />
-            </button>
-            {userDropdownOpen && (
-              <div className="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-12 right-4">
-                <div className="px-4 py-3">
-                  <span className="block text-sm text-gray-900 dark:text-white">
-                    Bonnie Green
-                  </span>
-                  <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                    name@flowbite.com
-                  </span>
+          {user.email ? (
+            <div className="relative">
+              <button
+                type="button"
+                className="flex text-sm  bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                onClick={() => setUserDropdownOpen(!userDropdownOpen)}>
+                <span className="sr-only">Open user menu</span>
+
+                {user?.photo ? (
+                  <img
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={user?.name}
+                    className="w-10 rounded-full"
+                    src={user.photo}
+                    alt="User"
+                  />
+                ) : (
+                  <div className="w-10 h-10 z-50 flex justify-center items-center bg-pin rounded-full">
+                    <h1 className="font-bold text-white text-2xl">
+                      {user?.name?.charAt(0).toUpperCase()}
+                    </h1>
+                  </div>
+                )}
+              </button>
+              {userDropdownOpen && (
+                <div className="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-12 right-4">
+                  <div className="px-4 py-3">
+                    <span className="block text-sm text-gray-900 dark:text-white">
+                      {user.name}
+                    </span>
+                    <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+                      {user.email}
+                    </span>
+                  </div>
+                  <ul className="py-2">
+                    <li className="ml-2">
+                      <ThemeTogole />
+                    </li>
+                    <li>
+                      <Link
+                        to="/dashbord"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                        Dashboard
+                      </Link>
+                    </li>
+
+                    <li>
+                      <div
+                        onClick={handleLogOut}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer dark:text-gray-200 dark:hover:text-white">
+                        Sign out
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <ul className="py-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/signin" className="pt-2 pb-2 flex justify-center items-center  px-5 bg-primaryP rounded-md font-bold shadow-sm  text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 ">
+              Login
+            </Link>
+          )}
+
           {/* Mobile Menu Toggle */}
           <button
             data-collapse-toggle="navbar-user"
@@ -139,4 +174,3 @@ Navber.propTypes = {
 };
 
 export default Navber;
-
