@@ -45,7 +45,9 @@ function Navber({ states }) {
   return (
     <nav
       className={`${
-        isSticky ? 'sticky top-0 backdrop-blur-lg bg-backgroundB border-b' : ''
+        isSticky
+          ? 'sticky top-0 backdrop-blur-lg bg-backgroundB shadow-md shadow-black/20 dark:shadow-white/20'
+          : ''
       } border-gray-200`}>
       <div className="wrap flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
@@ -95,10 +97,14 @@ function Navber({ states }) {
                   </div>
                   <ul className="py-2">
                     <li className="ml-2">
-                      <ThemeTogole />
+                      <div
+                        onClick={() => setUserDropdownOpen(false)}>
+                        <ThemeTogole />
+                      </div>
                     </li>
                     <li>
                       <Link
+                        onClick={() =>setUserDropdownOpen(false)}
                         to="/dashbord"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                         Dashboard
@@ -107,7 +113,9 @@ function Navber({ states }) {
 
                     <li>
                       <div
-                        onClick={handleLogOut}
+                        onClick={() => {
+                          handleLogOut(),setUserDropdownOpen(false);
+                        }}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer dark:text-gray-200 dark:hover:text-white">
                         Sign out
                       </div>
@@ -117,7 +125,9 @@ function Navber({ states }) {
               )}
             </div>
           ) : (
-            <Link to="/signin" className="pt-2 pb-2 flex justify-center items-center  px-5 bg-primaryP rounded-md font-bold shadow-sm  text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 ">
+            <Link
+              to="/signin"
+              className="pt-2 pb-2 flex justify-center items-center  px-5 bg-primaryP rounded-md font-bold shadow-sm  text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 ">
               Login
             </Link>
           )}
@@ -152,10 +162,10 @@ function Navber({ states }) {
           } items-center justify-between w-full md:flex md:w-auto md:order-1`}
           id="navbar-user">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
-            <NavLink to="/" className="links">
+            <NavLink   onClick={() =>setMenuOpen(false)} to="/" className="links">
               Home
             </NavLink>
-            <NavLink to="/apartment" className="links">
+            <NavLink   onClick={() => setMenuOpen(false)} to="/apartment" className="links">
               Apartment
             </NavLink>
           </ul>
