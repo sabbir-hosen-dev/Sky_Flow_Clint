@@ -1,82 +1,82 @@
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import login from '../../../assets/signin.png';
+import { Link } from 'react-router-dom';
+import GoogleSignBtn from '../../GoogleSignBtn/GoogleSignBtn';
 function SignIn() {
   return (
-    <div className="bg-white relative lg:py-20">
+    <div className=" relative lg:py-20">
+      <Link
+        to="/"
+        className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
+        <AiOutlineArrowLeft /> Back to Home
+      </Link>
       <div
         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
           xl:px-5 lg:flex-row">
         <div className="flex flex-col items-center w-full pt-5 pr-10 pb-20 pl-10 lg:pt-20 lg:flex-row">
-          <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
-            <div className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
-              <img
-                src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"
-                className="btn-"
-              />
-            </div>
-          </div>
           <div className="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-2xl lg:mt-0 lg:w-5/12">
             <div
-              className="flex flex-col items-start justify-start pt-10 pr-10 pb-10 pl-10 bg-white shadow-2xl rounded-xl
+              className="flex flex-col items-start justify-start pt-10 pr-10 pb-10 pl-10 bg-accentA shadow-2xl rounded-xl
                 relative z-10">
               <p className="w-full text-4xl font-medium text-center leading-snug font-serif">
-                Sign up for an account
+                Login your account
               </p>
-              <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
-                <div className="relative">
+              <form className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
+                <div className="relative ">
                   <p
-                    className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
+                    className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-textT
                       absolute">
-                    Username
-                  </p>
-                  <input
-                    placeholder="John"
-                    type="text"
-                    className="border placeholder-gray-400 focus:outline-none
-                      focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
-                      border-gray-300 rounded-md"
-                  />
-                </div>
-                <div className="relative">
-                  <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
                     Email
                   </p>
                   <input
-                    placeholder="123@ex.com"
-                    type="text"
-                    className="border placeholder-gray-400 focus:outline-none
-                      focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
-                      border-gray-300 rounded-md"
+                    name="email"
+                    placeholder="sabbir@gmail.com"
+                    type="email"
+                    required
+                    className="bg-secondaryS border placeholder-gray-400 focus:outline-none 
+                      focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block 
+                      border-gray-300 text-textT rounded-md"
                   />
                 </div>
-                <div className="relative">
+                {/* passwornd fild  */}
+                <div className="relative ">
                   <p
-                    className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
+                    className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-textT
                       absolute">
                     Password
                   </p>
                   <input
-                    placeholder="Password"
+                    name="password"
+                    placeholder="*******"
+                    required
                     type="password"
-                    className="border placeholder-gray-400 focus:outline-none
-                      focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
-                      border-gray-300 rounded-md"
+                    className="bg-secondaryS border placeholder-gray-400 focus:outline-none 
+                      focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block 
+                      border-gray-300 text-textT rounded-md"
                   />
                 </div>
-                <div className="relative">
-                  <a
-                    className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500
-                      rounded-lg transition duration-200 hover:bg-indigo-600 ease">
-                    Submit
-                  </a>
-                </div>
-              </div>
 
-
-
-        
+                <button
+                  className="relative
+                  
+                  w-full pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-center text-white bg-primaryP
+                      rounded-lg transition duration-200 hover:bg-primaryP/80 ease">
+                  Submit
+                </button>
+                <GoogleSignBtn />
+                <p className="text-sm font-light text-text">
+                  Don&apos;t have an account?{' '}
+                  <Link
+                    to="/signup"
+                    className="font-medium text-primary-600 hover:underline">
+                    <span className="text-blue-400">Sign Up here</span>
+                  </Link>
+                </p>
+              </form>
             </div>
             <svg
               viewBox="0 0 91 91"
-              className="absolute top-0 left-0 z-0 w-32 h-32 -mt-12 -ml-12 text-yellow-300
+              className="absolute top-0 left-0 z-0 w-32 h-32 -mt-12 -ml-12 text-primaryP
                 fill-current">
               <g stroke="none" strokeWidth="1" fillRule="evenodd">
                 <g fillRule="nonzero">
@@ -256,6 +256,11 @@ function SignIn() {
                 </g>
               </g>
             </svg>
+          </div>
+          <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
+            <div className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
+              <img src={login} className="btn-" />
+            </div>
           </div>
         </div>
       </div>
