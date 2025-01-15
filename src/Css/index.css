@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.wrap{
+  @apply max-w-[1600px] mx-auto px-5;
+}
+
+.links{
+  @apply block py-2 px-3 text-textT rounded hover:text-primaryP hover:bg-slate-100 md:hover:bg-transparent  md:p-0   
+}
+.active{
+  color:rgba(241, 145, 61)
+}
+
+.li{
+  @apply transition-colors duration-300 ease-linear text-textT/80 hover:text-textT
+}

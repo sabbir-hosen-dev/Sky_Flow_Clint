@@ -16,49 +16,49 @@ function Footer() {
               to="/"
               className="flex items-center space-x-3 rtl:space-x-reverse">
               <img src={logo} className="h-8" alt="Logo" />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap e">
                 SkyFlow
               </span>
             </Link>
-            <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
+            <p className="py-8 text-sm text-textT lg:max-w-xs text-center lg:text-left">
               Trusted in more than 100 countries & 5 million customers. Have any
               query ?
             </p>
             <a
               href="javascript:;"
-              className="py-2.5 px-5 h-9 block w-fit bg-indigo-600 rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-indigo-700 lg:mx-0">
+              className="py-2.5 px-5 h-9 block w-fit bg-primaryP rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 lg:mx-0">
               Contact us
             </a>
           </div>
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-gray-900 font-medium mb-7">Pagedone</h4>
+            <h4 className="text-lg  font-medium mb-7">Pagedone</h4>
             <ul className="text-sm  transition-all duration-500">
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className="text-gray-600 hover:text-gray-900">
+                  className="">
                   Home
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   About
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className="">
                   Pricing
                 </a>
               </li>
-              <li>
+              <li className='li'>
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Features
                 </a>
               </li>
@@ -66,33 +66,33 @@ function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left ">
-            <h4 className="text-lg text-gray-900 font-medium mb-7">Products</h4>
+            <h4 className="text-lg font-medium mb-7">Products</h4>
             <ul className="text-sm  transition-all duration-500">
-              <li className="mb-6">
+              <li className="mb-6 transition-colors duration-300 ease-linear text-textT/80 hover:text-textT">
                 <a
                   href="javascript:;"
-                  className="text-gray-600 hover:text-gray-900">
+                  className="">
                   Figma UI System
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Icons Assets
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Responsive Blocks
                 </a>
-              </li>
-              <li>
+              </li >
+              <li className='li'>
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Components Library
                 </a>
               </li>
@@ -100,35 +100,35 @@ function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left">
-            <h4 className="text-lg text-gray-900 font-medium mb-7">
+            <h4 className="text-lg  font-medium mb-7">
               Resources
             </h4>
             <ul className="text-sm  transition-all duration-500">
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className="text-gray-600 hover:text-gray-900">
+                  className="">
                   FAQs
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Quick Start
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Documentation
                 </a>
               </li>
-              <li>
+              <li className='li'>
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   User Guide
                 </a>
               </li>
@@ -136,33 +136,33 @@ function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className="lg:mx-auto text-left">
-            <h4 className="text-lg text-gray-900 font-medium mb-7">Blogs</h4>
+            <h4 className="text-lg  font-medium mb-7">Blogs</h4>
             <ul className="text-sm  transition-all duration-500">
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className="text-gray-600 hover:text-gray-900">
+                  className="">
                   News
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Tips & Tricks
                 </a>
               </li>
-              <li className="mb-6">
+              <li className="mb-6 li">
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   New Updates
                 </a>
               </li>
               <li>
                 <a
                   href="javascript:;"
-                  className=" text-gray-600 hover:text-gray-900">
+                  className=" ">
                   Events
                 </a>
               </li>
@@ -172,15 +172,15 @@ function Footer() {
         {/* <!--Grid--> */}
         <div className="py-7 border-t border-gray-200">
           <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-            <span className="text-sm text-gray-500 ">
+            <span className="text-sm text-textT ">
               &copy;<a href="https://pagedone.io/">Sabir Hosen</a>{' '}
               {new Date().getFullYear()}, All rights reserved.
             </span>
             <div className="flex mt-4  space-x-4 sm:justify-center lg:mt-0 ">
-              <CgFacebook className="w-9 h-9 rounded-full  flex  hover:text-whitejustify-center items-center hover:bg-indigo-600" />
-              <AiOutlineLinkedin className="w-9 h-9 rounded-full  flex  hover:text-whitejustify-center items-center hover:bg-indigo-600" />
-              <AiFillGithub className="w-9 h-9 rounded-full flex hover:text-white justify-center items-center hover:bg-indigo-600" />
-              <AiOutlineWhatsApp className="w-9 h-9 rounded-full  flex justify-center items-center hover:bg-indigo-600 hover:text-white" />
+              <CgFacebook className="w-9 h-9 rounded-full  flex  hover:text-whitejustify-center items-center hover:text-primaryP cursor-pointer duration-300  " />
+              <AiOutlineLinkedin className="w-9 h-9 rounded-full  flex  hover:text-whitejustify-center items-center hover:text-primaryP cursor-pointer duration-300  " />
+              <AiFillGithub className="w-9 h-9 rounded-full flex hover:text-white justify-center items-center hover:text-primaryP cursor-pointer duration-300  " />
+              <AiOutlineWhatsApp className="w-9 h-9 rounded-full  flex justify-center items-center  hover:text-white hover:text-primaryP cursor-pointer duration-300 " />
             </div>
           </div>
         </div>
