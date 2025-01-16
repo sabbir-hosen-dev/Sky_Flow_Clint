@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { BiUpload } from 'react-icons/bi';
 import signup from '../../../assets/signup.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import GoogleSignBtn from '../../GoogleSignBtn/GoogleSignBtn';
 
@@ -9,27 +9,97 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import useFileNameRename from '../../../Hooks/useFileNameRename';
 import uploadFile from '../../../Api/uploadFile';
-
-
+import useAuthContext from '../../../Hooks/useAuthContext';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../../Firebase/firebase.config';
+import toast from 'react-hot-toast';
+import { useState } from 'react';
+import load from '../../../assets/loading.gif';
 
 function SignUp() {
   const SignUpSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too Short!').required('Username is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
-    password: Yup.string().min(6, 'Password too short').required('Password is required'),
+    password: Yup.string()
+      .min(6, 'Password too short')
+      .required('Password is required'),
     file: Yup.mixed()
-    .required('Profile picture is required')
-    .test('fileSize', 'File is too large', (value) => !value || (value && value.size <= 2 * 1024 * 1024)) // 2MB limit
-    .test('fileType', 'Unsupported file format', (value) =>
-      !value || (value && ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type))
-    ),
+      .required('Profile picture is required')
+      .test(
+        'fileSize',
+        'File is too large',
+        value => !value || (value && value.size <= 2 * 1024 * 1024)
+      ) // 2MB limit
+      .test(
+        'fileType',
+        'Unsupported file format',
+        value =>
+          !value ||
+          (value &&
+            ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type))
+      ),
   });
 
-  const handleSubmit = async (values) => {
-    console.log(values)
-    const photoUrl = await uploadFile(values.file)
-    console.log(photoUrl)
+  const [loadding, setLoadding] = useState(false);
+
+  const {setUser, createUser } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values, { resetForm }) => {
+    setLoadding(true);
+    try {
+      const { name, email, password, file } = values;
+  
+      // Upload the file and get the image URL
+      const photoUrl = await uploadFile(file);
+  
+      // Create user with email and password
+      await createUser(email, password);
+  
+      // Get the authenticated user
+      const user = auth.currentUser;
+  
+      if (user) {
+        // Update user profile
+        await updateProfile(user, {
+          displayName: name,
+          photoURL: photoUrl,
+        });
+  
+        // Set user state
+        setUser({
+          name: name,
+          email: email,
+          photo: photoUrl,
+        });
+  
+        // Success message
+        toast.success("Account Created Successfully!");
+  
+        // Reset form and navigate to sign-in page
+        resetForm();
+        navigate("/signin");
+      }
+    } catch (error) {
+      console.error("Error during user creation:", error.message);
+  
+      // Handle Firebase errors
+      if (error.code === "auth/email-already-in-use") {
+        toast.error("An account with this email already exists. Please log in instead.");
+        navigate("/signin"); // Redirect to sign-in page
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email format. Please enter a valid email.");
+      } else if (error.code === "auth/weak-password") {
+        toast.error("Password should be at least 6 characters.");
+      } else {
+        toast.error("Error creating account. Please try again.");
+      }
+    } finally {
+      setLoadding(false);
+    }
   };
+  
+  
 
   return (
     <div className=" relative lg:py-20">
@@ -50,93 +120,122 @@ function SignUp() {
                 Create a new account
               </p>
               <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
-
-              <Formik
-              initialValues={{
-                name: '',
-                email: '',
-                password: '',
-                file: null,
-              }}
-              validationSchema={SignUpSchema}
-              onSubmit={(values) => handleSubmit(values)}>
-              {({ setFieldValue, values }) => (
-                <Form className="w-full mt-6 space-y-8">
-                  <div>
-                    <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
-                      Username
-                    </p>
-                    <Field
-                      name="name"
-                      placeholder="John"
-                      type="text"
-                      className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
-                    />
-                    <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
-                  </div>
-
-                  <div>
-                    <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
-                      Email
-                    </p>
-                    <Field
-                      name="email"
-                      placeholder="sabbir@gmail.com"
-                      type="email"
-                      className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
-                    />
-                    <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
-                  </div>
-
-                  <div>
-                    <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
-                      Password
-                    </p>
-                    <Field
-                      name="password"
-                      placeholder="*******"
-                      type="password"
-                      className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
-                    />
-                    <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
-                  </div>
-
-                  <div>
-                    <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
-                      Profile
-                    </p>
-                    <div className="bg-secondaryS flex border w-full pt-4 pr-4 pb-4 rounded-md">
-                      <label
-                        htmlFor="file"
-                        className="flex items-center gap-2 bg-secondaryS text-text px-4 rounded cursor-pointer hover:bg-secondaryS/60">
-                        <BiUpload />
-                        Upload File
-                      </label>
-                      <input
-                        id="file"
-                        name="file"
-                        type="file"
-                        onChange={(event) => setFieldValue('file', event.target.files[0])}
-                        className="hidden"
-                      />
-                      <div className="flex items-center gap-4">
-                        <span className="text-textT/60">
-                        {values.file ? useFileNameRename(values.file.name) : 'No file selected'}
-                        </span>
+                <Formik
+                  initialValues={{
+                    name: '',
+                    email: '',
+                    password: '',
+                    file: null,
+                  }}
+                  validationSchema={SignUpSchema}
+                  onSubmit={(values, { resetForm }) =>
+                    handleSubmit(values, { resetForm })
+                  }>
+                  {({ setFieldValue, values }) => (
+                    <Form className="w-full mt-6 space-y-8">
+                      <div>
+                        <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
+                          Username
+                        </p>
+                        <Field
+                          name="name"
+                          placeholder="sabbir"
+                          type="text"
+                          className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
+                        />
+                        <ErrorMessage
+                          name="name"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
                       </div>
-                    </div>
-                    <ErrorMessage name="file" component="div" className="text-red-500 text-sm" />
 
-                  </div>
+                      <div>
+                        <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
+                          Email
+                        </p>
+                        <Field
+                          name="email"
+                          placeholder="sabbir@gmail.com"
+                          type="email"
+                          className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
+                        />
+                        <ErrorMessage
+                          name="email"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
 
-                  <button
-                    type="submit"
-                    className="w-full pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-white bg-primaryP rounded-lg transition duration-200 hover:bg-primaryP/80">
-                    Submit
-                  </button>
-                </Form>
-              )}
-            </Formik>
+                      <div>
+                        <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
+                          Password
+                        </p>
+                        <Field
+                          name="password"
+                          placeholder="*******"
+                          type="password"
+                          className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
+                        />
+                        <ErrorMessage
+                          name="password"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
+                          Profile
+                        </p>
+                        <div className="bg-secondaryS flex border w-full pt-4 pr-4 pb-4 rounded-md">
+                          <label
+                            htmlFor="file"
+                            className="flex items-center gap-2 bg-secondaryS text-text px-4 rounded cursor-pointer hover:bg-secondaryS/60">
+                            <BiUpload />
+                            Upload File
+                          </label>
+                          <input
+                            id="file"
+                            name="file"
+                            type="file"
+                            onChange={event =>
+                              setFieldValue('file', event.target.files[0])
+                            }
+                            className="hidden"
+                          />
+                          <div className="flex items-center gap-4">
+                            <span className="text-textT/60">
+                              {values.file
+                                ? useFileNameRename(values.file.name)
+                                : 'No file selected'}
+                            </span>
+                          </div>
+                        </div>
+                        <ErrorMessage
+                          name="file"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+
+                      {!loadding ? (
+                        <button
+                          type="submit"
+                          className="w-full pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-white bg-primaryP rounded-lg transition duration-200 hover:bg-primaryP/80">
+                          Submit
+                        </button>
+                      ) : (
+                        <button
+                          
+                          disabled="true"
+                          className="w-full flex justify-center pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-white bg-primaryP rounded-lg transition duration-200 hover:bg-primaryP/80">
+                          <img className='w-7' src={load} alt="" /> 
+                        </button>
+                      )}
+                    </Form>
+                  )}
+                </Formik>
 
                 <GoogleSignBtn />
                 <p className="text-sm font-light text-text">
@@ -144,7 +243,7 @@ function SignUp() {
                   <Link
                     to="/signin"
                     className="font-medium text-primary-600 hover:underline">
-                    <span className="text-blue-400">Sign Up here</span>
+                    <span className="text-blue-400">Login here</span>
                   </Link>
                 </p>
               </div>

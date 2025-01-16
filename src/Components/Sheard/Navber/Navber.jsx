@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import ThemeTogole from '../../ThemeTogole/ThemeTogole';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import { axiosInt } from '../../../Hooks/useAxios';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Navber({ states }) {
   const { menuOpen, setMenuOpen, userDropdownOpen, setUserDropdownOpen } =
@@ -58,6 +58,7 @@ function Navber({ states }) {
             SkyFlow
           </span>
         </Link>
+        <Toaster position='top-right' />
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {!user.email && <ThemeTogole />}
           {/* User Dropdown */}

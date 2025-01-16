@@ -1,8 +1,39 @@
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import login from '../../../assets/signin.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoogleSignBtn from '../../GoogleSignBtn/GoogleSignBtn';
+import toast from 'react-hot-toast';
+import useAuthContext from '../../../Hooks/useAuthContext';
 function SignIn() {
+
+  const {user,setUser,loginUser} = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+      .then(data => {
+        const { displayName, email, photoURL } = data.user;
+        setUser({
+          ...user,
+          name: displayName,
+          email: email,
+          photo: photoURL,
+        });
+
+        toast.success('Login successful!'); // Success toast
+        form.reset();
+        navigate(`${location?.state?.form || '/'}`);
+      })
+      .catch(error => {
+        console.error('Login error:', error.message);
+        toast.error('Login failed! Please check your credentials.'); // Error toast
+      });
+  };
   return (
     <div className=" relative lg:py-20">
       <Link
@@ -10,6 +41,7 @@ function SignIn() {
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
         <AiOutlineArrowLeft /> Back to Home
       </Link>
+      
       <div
         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
           xl:px-5 lg:flex-row">
@@ -21,7 +53,7 @@ function SignIn() {
               <p className="w-full text-4xl font-medium text-center leading-snug font-serif">
                 Login your account
               </p>
-              <form className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
+              <form onSubmit={handleSubmit} className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
                 <div className="relative ">
                   <p
                     className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-textT
@@ -57,8 +89,9 @@ function SignIn() {
                 </div>
 
                 <button
+                type='submit'
                   className="relative
-                  
+                    
                   w-full pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-center text-white bg-primaryP
                       rounded-lg transition duration-200 hover:bg-primaryP/80 ease">
                   Submit
