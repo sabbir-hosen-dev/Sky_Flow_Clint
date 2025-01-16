@@ -29,7 +29,6 @@ function Navber({ states }) {
       .then(() => {
         axiosInt
           .post('/logout')
-          .then(() => console.log('hi'))
           .catch(err => console.log(err));
         setUser({
           ...user,
@@ -46,7 +45,7 @@ function Navber({ states }) {
     <nav
       className={`${
         isSticky
-          ? 'sticky top-0 backdrop-blur-lg bg-backgroundB shadow-md shadow-black/20 dark:shadow-white/20'
+          ? 'sticky z-[9999999999999] top-0 backdrop-blur-lg bg-backgroundB/30 shadow-md shadow-black/20 dark:shadow-gray-500/20'
           : ''
       } border-gray-200`}>
       <div className="wrap flex flex-wrap items-center justify-between mx-auto p-4">

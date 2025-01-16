@@ -2,6 +2,7 @@ import { FcGoogle } from "react-icons/fc"
 import useAuthContext from "../../Hooks/useAuthContext"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast";
+import saveUser from "../../Api/saveUser";
 
 
 function GoogleSignBtn() {
@@ -13,6 +14,12 @@ function GoogleSignBtn() {
     .then(user => {
       const { displayName, photoURL, email } = user.user;
 
+      const newUser = {
+        name : displayName,
+        email : email,
+        photo : photoURL
+      }
+      saveUser(newUser)
       setUser({
         ...user,
         name: displayName,

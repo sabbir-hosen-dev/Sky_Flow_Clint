@@ -31,9 +31,9 @@ const AuthContextProvider = ({children}) => {
           axiosInt
             .post('/jwt', newUser)
             .then(() => {
+
               setUser(newUser);
               setLoadding(false);
-
               
             })
             .catch(err => {
