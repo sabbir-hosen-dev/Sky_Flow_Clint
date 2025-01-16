@@ -12,7 +12,7 @@ const CouponCard = ({ code, discount,description }) => {
 
   return (
     <motion.div
-    className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center gap-3 relative w-72 hover:scale-105 transition-transform cursor-pointer"
+    className="bg-gradient-to-r w-full  from-purple-600 to-indigo-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center gap-3 relative  hover:scale-105 transition-transform cursor-pointer"
     whileHover={{ y: -5 }}
   >
     <span className="text-lg font-bold">{discount} OFF</span>

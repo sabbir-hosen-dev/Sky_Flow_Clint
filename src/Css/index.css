@@ -13,6 +13,12 @@
 .active{
   color:rgba(241, 145, 61)
 }
+.margin{
+  @apply my-[80px]
+}
+.card-btn{
+  @apply relative text-textT border border-2 border-primaryP rounded inline cursor-pointer  px-3 pb-2 py-1 before:bg-primaryP hover:rounded-b-none before:absolute before:-bottom-0 before:-left-0  before:block before:h-[3px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100
+}
 
 .li{
   @apply transition-colors duration-300 ease-linear text-textT/80 hover:text-textT

@@ -1,3 +1,4 @@
+import TopHeading from "../TopHeading/TopHeading";
 import CouponCard from "./CoponCard";
 
 
@@ -9,11 +10,9 @@ const fakeCoupons = [
 
 const Coupons = () => {
   return (
-    <div className="my-10 px-4">
-      <h2 className="text-3xl font-semibold text-center text-indigo-700 mb-6">
-        🎉 Exclusive Coupons for You!
-      </h2>
-      <div className="flex flex-wrap justify-center gap-6">
+    <div className="my-10 margin wrap px-4">
+       <TopHeading title=" Limited-Time Apartment Offers!" subtitle=" Book now and enjoy exclusive discounts before they’re gone!" />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center justify-center gap-6">
         {fakeCoupons.map(({ id, code, discount, description }) => (
           <CouponCard key={id} code={code} discount={discount} description={description} />
         ))}

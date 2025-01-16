@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { HiOutlineLocationMarker, HiOutlineSupport } from "react-icons/hi";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
+import TopHeading from "../TopHeading/TopHeading";
 
 const apartmentLocation = {
   lat: 23.8103,
@@ -13,6 +14,7 @@ const apartmentLocation = {
 const Location = () => {
   return (
     <section className="relative mb-32">
+      <TopHeading title="Your Dream Apartment Awaits" subtitle="Live in style in our modern apartments located in vibrant, accessible neighborhoods." />
       {/* Leaflet Map */}
       <div id="map" className="relative shadow-md h-[400px]">
         <MapContainer

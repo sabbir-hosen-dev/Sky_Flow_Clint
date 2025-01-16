@@ -1,0 +1,170 @@
+[
+  {
+    "title": "1st Floor - Apartment 1",
+    "description": "Cozy 1-bedroom apartment in a quiet building.",
+    "price": 800,
+    "rooms": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 600,
+    "floorNo": 1,
+    "blockNo": 7,
+    "apartmentNo": 101,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 1st Floor, 123 Main St, City, State",
+      "neighborhood": "Quiet Residential Area",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Parking", "24/7 Security"],
+    "availableFrom": "2025-02-01",
+    "images": [
+      "hhttps://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/property-05.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_05.webp",
+      "https://ar.rdcpix.com/16de98bdb09cc9fb6ecb329211201e03c-f2432407961rd-w480_h360.jpg",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_03.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_02.webp"
+    ]
+  },
+  {
+    "title": "2nd Floor - Apartment 2",
+    "description": "Spacious 2-bedroom apartment with a great view.",
+    "price": 1000,
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 750,
+    "floorNo": 2,
+    "blockNo": 7,
+    "apartmentNo": 201,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 2nd Floor, 123 Main St, City, State",
+      "neighborhood": "Downtown",
+      "zipCode": "12345"
+    },
+    "amenities": ["Gym", "Swimming Pool", "Elevator"],
+    "availableFrom": "2025-03-01",
+    "images": [
+      "hhttps://protywpv2.live.vithemes.com/wp-content/uploads/2024/08/property-01.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_09.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_03.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_08.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_07.webp"
+    ]
+  },
+  {
+    "title": "3rd Floor - Apartment 3",
+    "description": "Affordable 2-bedroom apartment with basic amenities.",
+    "price": 900,
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 700,
+    "floorNo": 3,
+    "blockNo": 7,
+    "apartmentNo": 301,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 3rd Floor, 123 Main St, City, State",
+      "neighborhood": "Quiet Residential Area",
+      "zipCode": "12345"
+    },
+    "amenities": ["Parking", "Elevator", "Pet Friendly"],
+    "availableFrom": "2025-02-15",
+    "images": [
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/property-05.webp",
+      "https://images1.apartments.com/i2/Qv9tYXHR3GyvkzkgdnktCOU3lqkphvwoUZU2F2Vo0Sc/117/image.jpg",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_14.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_03.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_02.webp"
+    ]
+  },
+  {
+    "title": "4th Floor - Apartment 4",
+    "description": "Luxurious 3-bedroom apartment with a large balcony.",
+    "price": 1500,
+    "rooms": 4,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": 1200,
+    "floorNo": 4,
+    "blockNo": 7,
+    "apartmentNo": 401,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 4th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Metro Station",
+      "zipCode": "12345"
+    },
+    "amenities": ["Balcony", "Elevator", "Gym", "Swimming Pool", "24/7 Security"],
+    "availableFrom": "2025-03-01",
+    "images": [
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/08/property-01.webp",
+      "https://rentpath-res.cloudinary.com/t_3x2_fixed_webp_lg/e5c07212809c9b75c77000a9a5f1d35a",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_09.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_06.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_10.webp"
+    ]
+  },
+  {
+    "title": "5th Floor - Apartment 5",
+    "description": "Modern 1-bedroom apartment with open-plan living.",
+    "price": 950,
+    "rooms": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 650,
+    "floorNo": 5,
+    "blockNo": 7,
+    "apartmentNo": 501,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 5th Floor, 123 Main St, City, State",
+      "neighborhood": "City Center",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Parking", "24/7 Security"],
+    "availableFrom": "2025-02-10",
+    "images": [
+      "https://static.vecteezy.com/system/resources/previews/016/478/810/large_2x/interior-of-a-house-under-construction-renovation-of-an-apartment-photo.jpg",
+      "https://images1.apartments.com/i2/h7haZEE_CPwGrJwZ7dNzS5oNxvrH-A8xE-PCb-hTwrA/117/black-pine-flats-fort-wayne-in-2-bed-1-bath-kitchen.jpg?p=1",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_16.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_01.webp",
+      "https://photos.zillowstatic.com/fp/9484b36269696972ffff148684cf965e-p_e.jpg"
+    ]
+  },
+  {
+    "title": "6th Floor - Apartment 6",
+    "description": "Bright 2-bedroom apartment with a great view of the city.",
+    "price": 1100,
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 800,
+    "floorNo": 6,
+    "blockNo": 7,
+    "apartmentNo": 601,
+    "rent": true,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 6th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Schools and Parks",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Gym", "Swimming Pool", "Parking"],
+    "availableFrom": "2025-02-20",
+    "images": [
+      "https://media.architecturaldigest.com/photos/64b7e1626049f7ce20b67014/16:9/w_2048,h_1152,c_limit/89-00%20170th%20St%207E%20LR%20VS%20ALC%20WIDE%20SHOT_finalCC-2.jpg",
+      "https://imagescdn.homes.com/i2/wtmuuTtnB-Bd2kNVWf-qr5ji5rSuyPanx8qvJ8vkdW4/117/1004-1006-fayette-dr-fort-wayne-in-buildingphoto-2.jpg?p=1",
+      "https://cdn.hometogo.net/medium/v1/8a4/b77/0f6beb02550a94ba14d5a4a15c.jpg",
+      "https://www.momondo.com/himg/f1/91/b3/expedia_group-8055957-4b9ed4-139484.jpg",
+      "https://a0.muscache.com/im/pictures/airflow/Hosting-31613993/original/5f0826d4-50d8-4fdd-9544-74a2833d8699.jpg?im_w=720&im_format=avif"
+    ]
+  }
+]
