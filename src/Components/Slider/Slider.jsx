@@ -46,7 +46,7 @@ function Slider() {
               {/* Right content */}
               <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center p-8 bg-accentA/10">
                 <div className="xl:pl-[10%] float-animation">
-                  <h2 className="mt-4 text-5xl md:text-5xl xl:text-6xl  font-bold leading-none bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+                  <h2 className="mt-4 text-5xl md:text-5xl xl:text-6xl  font-bold leading-none bg-gradient-to-r from-textT to-textT bg-clip-text text-transparent">
                     {slide.title}
                   </h2>
                   <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
@@ -64,7 +64,7 @@ function Slider() {
                   alt={slide.title}
                   className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
                 />
-                <div className="absolute inset-0 bg-gradient-to-l from-neutral-950/70 to-neutral-950/50 transition-opacity duration-500 group-hover:opacity-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-gray-900/40 to-gray-600/50  transition-opacity duration-500 group-hover:opacity-0"></div>
               </div>
             </section>
           </SwiperSlide>
