@@ -39,23 +39,23 @@ const Location = () => {
           <div className="flex flex-wrap">
             {/* Support Contact */}
             <div className=" w-full md:w-6/12 flex items-center">
-              <div className="shrink-0 p-4 bg-sky-200 rounded-md">
-                <HiOutlineSupport className="w-7 h-7 text-blue-600" />
+              <div className="shrink-0 p-4 bg-sky-50 rounded-md">
+                <HiOutlineSupport className="w-7 h-7 text-primaryP" />
               </div>
               <div className="ml-6">
                 <p className="mb-2 font-bold">Technical Support</p>
                 <p className="text-sm text-textT/70 flex items-center">
-                  <FiMail className="mr-2" /> example@gmail.com
+                  <FiMail className="mr-2" /> tssabbirhosen@gmail.com
                 </p>
                 <p className="text-sm text-textT/70 flex items-center">
-                  <FiPhoneCall className="mr-2" /> 1-600-890-4567
+                  <FiPhoneCall className="mr-2" /> +880 1313-530719
                 </p>
               </div>
             </div>
             {/* Address */}
             <div className=" w-full md:w-6/12 flex items-center">
-              <div className="shrink-0 p-4 bg-sky-200 rounded-md">
-                <HiOutlineLocationMarker className="w-7 h-7 text-red-600" />
+              <div className="shrink-0 p-4 bg-sky-50 rounded-md">
+                <HiOutlineLocationMarker className="w-7 h-7 text-primaryP" />
               </div>
               <div className="ml-6">
                 <p className="mb-2 text-textT font-bold">Address</p>

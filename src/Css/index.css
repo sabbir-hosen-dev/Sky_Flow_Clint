@@ -13,6 +13,10 @@
 .active{
   color:rgba(241, 145, 61)
 }
+.swiper-pagination-bullet-active {
+  background-color: rgba(241, 145, 61) !important; /* Active bullet color */
+  opacity: 1;
+}
 .margin{
   @apply my-[80px]
 }

@@ -1,49 +1,39 @@
+import { useQuery } from '@tanstack/react-query';
 import TopHeading from '../TopHeading/TopHeading';
 import ApartmentCard from './ApartmentCard';
+import { axiosInt } from '../../Hooks/useAxios';
+import LoaddingCard from './LoaddingCard';
+import DataNotFound from '../DataNotFound/DataNotFound';
 
 function Apartments() {
-  const apartments = [
-    {
-      id: 1,
-      image: 'https://source.unsplash.com/400x300/?apartment,building',
-      floorNo: 3,
-      blockName: 'A',
-      apartmentNo: '301',
-      rent: 1200,
-    },
-    {
-      id: 2,
-      image: 'https://source.unsplash.com/400x300/?modern-apartment',
-      floorNo: 5,
-      blockName: 'B',
-      apartmentNo: '502',
-      rent: 1500,
-    },
-    {
-      id: 3,
-      image: 'https://source.unsplash.com/400x300/?luxury-apartment',
-      floorNo: 2,
-      blockName: 'C',
-      apartmentNo: '205',
-      rent: 1800,
-    },
-    {
-      id: 4,
-      image: 'https://source.unsplash.com/400x300/?real-estate',
-      floorNo: 7,
-      blockName: 'D',
-      apartmentNo: '701',
-      rent: 2000,
-    },
-  ];
+  const damo = [1, 2, 3, 4, 5, 6];
 
+  const {
+    isPending,
+    error,
+    data: apartments,
+  } = useQuery({
+    queryKey: ['cardData'],
+    queryFn: () => axiosInt.get('/apartments').then(res => res.data),
+  });
+
+  console.log(apartments)
   return (
     <div className="margin">
-      <TopHeading title='Find Your Perfect Home' subtitle="Easy booking for hassle-free apartment viewings" />
+      <TopHeading
+        title="Find Your Perfect Home"
+        subtitle="Easy booking for hassle-free apartment viewings"
+      />
+         {
+          error && <DataNotFound />
+        }
       <div className="grid wrap grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {apartments.map(apartment => (
-          <ApartmentCard key={apartment.id} apartment={apartment} />
-        ))}
+     
+        {apartments &&
+          apartments.map(apartment => (
+            <ApartmentCard key={apartment._id} apartment={apartment} />
+          ))}
+        {isPending && damo.map((a, b) => <LoaddingCard key={b} />)}
       </div>
     </div>
   );
