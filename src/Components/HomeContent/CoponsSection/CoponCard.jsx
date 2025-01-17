@@ -1,14 +1,16 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const CouponCard = ({ code, discount, description }) => {
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (offer) => {
     navigator.clipboard.writeText(code);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    toast.success(`${offer} off coupon Copy`)
+    setTimeout(() => {setCopied(false) }, 2000);
   };
 
   return (
@@ -22,8 +24,8 @@ const CouponCard = ({ code, discount, description }) => {
       <div className="bg-white text-orange-600 font-bold px-4 py-2 rounded-md flex items-center gap-2 dark:bg-gray-700 dark:text-orange-300">
         <span>{code}</span>
         <button
-          onClick={copyToClipboard}
-          className="ml-2 text-sm text-orange-700 hover:underline dark:text-primaryP"
+          onClick={()=> copyToClipboard(discount)}
+          className="ml-2 text-sm bg-primaryP/10 px-2 rounded-md text-orange-700 hover:underline dark:text-primaryP"
         >
           {copied ? "Copied!" : "Copy"}
         </button>

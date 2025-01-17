@@ -27,3 +27,6 @@
 .li{
   @apply transition-colors duration-300 ease-linear text-textT/80 hover:text-textT
 }
+.swiper-button-next, .swiper-button-prev {
+  display: none !important;
+}

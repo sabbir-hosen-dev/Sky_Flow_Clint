@@ -1,9 +1,10 @@
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import login from '../../../assets/signin.png';
 import { Link, useNavigate } from 'react-router-dom';
-import GoogleSignBtn from '../../GoogleSignBtn/GoogleSignBtn';
+
 import toast from 'react-hot-toast';
 import useAuthContext from '../../../Hooks/useAuthContext';
+import GoogleSignBtn from '../../../Components/Utlites/GoogleSignBtn/GoogleSignBtn';
 function SignIn() {
 
   const {user,setUser,loginUser} = useAuthContext();

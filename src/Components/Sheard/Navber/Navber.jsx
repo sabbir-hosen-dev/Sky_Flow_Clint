@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import logo from '../../../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
-import ThemeTogole from '../../ThemeTogole/ThemeTogole';
+import ThemeTogole from '../../Utlites/ThemeTogole/ThemeTogole';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import { axiosInt } from '../../../Hooks/useAxios';
 import toast, { Toaster } from 'react-hot-toast';
@@ -27,9 +27,7 @@ function Navber({ states }) {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        axiosInt
-          .post('/logout')
-          .catch(err => console.log(err));
+        axiosInt.post('/logout').catch(err => console.log(err));
         setUser({
           ...user,
           name: '',
@@ -57,7 +55,7 @@ function Navber({ states }) {
             SkyFlow
           </span>
         </Link>
-        <Toaster position='top-right' />
+        <Toaster position="top-right" />
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {!user.email && <ThemeTogole />}
           {/* User Dropdown */}
@@ -97,14 +95,13 @@ function Navber({ states }) {
                   </div>
                   <ul className="py-2">
                     <li className="ml-2">
-                      <div
-                        onClick={() => setUserDropdownOpen(false)}>
+                      <div onClick={() => setUserDropdownOpen(false)}>
                         <ThemeTogole />
                       </div>
                     </li>
                     <li>
                       <Link
-                        onClick={() =>setUserDropdownOpen(false)}
+                        onClick={() => setUserDropdownOpen(false)}
                         to="/dashbord"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                         Dashboard
@@ -114,7 +111,7 @@ function Navber({ states }) {
                     <li>
                       <div
                         onClick={() => {
-                          handleLogOut(),setUserDropdownOpen(false);
+                          handleLogOut(), setUserDropdownOpen(false);
                         }}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer dark:text-gray-200 dark:hover:text-white">
                         Sign out
@@ -162,10 +159,16 @@ function Navber({ states }) {
           } items-center justify-between w-full md:flex md:w-auto md:order-1`}
           id="navbar-user">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
-            <NavLink   onClick={() =>setMenuOpen(false)} to="/" className="links">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/"
+              className="links">
               Home
             </NavLink>
-            <NavLink   onClick={() => setMenuOpen(false)} to="/apartment" className="links">
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/apartment"
+              className="links">
               Apartment
             </NavLink>
           </ul>

@@ -3,7 +3,7 @@ import { BiUpload } from 'react-icons/bi';
 import signup from '../../../assets/signup.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import GoogleSignBtn from '../../GoogleSignBtn/GoogleSignBtn';
+import GoogleSignBtn from '../../../Components/Utlites/GoogleSignBtn/GoogleSignBtn';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -42,64 +42,64 @@ function SignUp() {
 
   const [loadding, setLoadding] = useState(false);
 
-  const {setUser, createUser } = useAuthContext();
+  const { setUser, createUser } = useAuthContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
     setLoadding(true);
     try {
       const { name, email, password, file } = values;
-  
+
       // Upload the file and get the image URL
       const photoUrl = await uploadFile(file);
-  
+
       // Create user with email and password
       await createUser(email, password);
-  
+
       // Get the authenticated user
       const user = auth.currentUser;
-  
+
       if (user) {
         // Update user profile
         await updateProfile(user, {
           displayName: name,
           photoURL: photoUrl,
         });
-  
+
         // Set user state
         setUser({
           name: name,
           email: email,
           photo: photoUrl,
         });
-  
+
         // Success message
-        toast.success("Account Created Successfully!");
-  
+        toast.success('Account Created Successfully!');
+
         // Reset form and navigate to sign-in page
         resetForm();
-        navigate("/signin");
+        navigate('/signin');
       }
     } catch (error) {
-      console.error("Error during user creation:", error.message);
-  
+      console.error('Error during user creation:', error.message);
+
       // Handle Firebase errors
-      if (error.code === "auth/email-already-in-use") {
-        toast.error("An account with this email already exists. Please log in instead.");
-        navigate("/signin"); // Redirect to sign-in page
-      } else if (error.code === "auth/invalid-email") {
-        toast.error("Invalid email format. Please enter a valid email.");
-      } else if (error.code === "auth/weak-password") {
-        toast.error("Password should be at least 6 characters.");
+      if (error.code === 'auth/email-already-in-use') {
+        toast.error(
+          'An account with this email already exists. Please log in instead.'
+        );
+        navigate('/signin'); // Redirect to sign-in page
+      } else if (error.code === 'auth/invalid-email') {
+        toast.error('Invalid email format. Please enter a valid email.');
+      } else if (error.code === 'auth/weak-password') {
+        toast.error('Password should be at least 6 characters.');
       } else {
-        toast.error("Error creating account. Please try again.");
+        toast.error('Error creating account. Please try again.');
       }
     } finally {
       setLoadding(false);
     }
   };
-  
-  
 
   return (
     <div className=" relative lg:py-20">
@@ -227,10 +227,9 @@ function SignUp() {
                         </button>
                       ) : (
                         <button
-                          
                           disabled="true"
                           className="w-full flex justify-center pt-3 pr-5 pb-3 pl-5 text-xl font-medium text-white bg-primaryP rounded-lg transition duration-200 hover:bg-primaryP/80">
-                          <img className='w-7' src={load} alt="" /> 
+                          <img className="w-7" src={load} alt="" />
                         </button>
                       )}
                     </Form>

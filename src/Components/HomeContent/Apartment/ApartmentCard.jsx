@@ -31,7 +31,7 @@ function ApartmentCard({ apartment }) {
           <span className="text-textT/70 text-sm">/ month</span>
         </div>
         <div className="mt-3">
-          <Link to={`apartment/${_id}`} className="card-btn">Agreement</Link>
+          <Link  to={`apartments/${_id}`}className="card-btn">Agreement</Link>
         </div>
         
       </div>
