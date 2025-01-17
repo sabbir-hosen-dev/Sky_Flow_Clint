@@ -48,7 +48,7 @@ function Apartment() {
     size,
     amenities,
     title,
-    _id,
+    // _id,
   } = apartment;
   return (
     <div className="wrap">
@@ -159,7 +159,7 @@ function Apartment() {
         <h3 className="text-xl mt-5 font-bold  dark:text-white mb-4">
           Apartment Amenities
         </h3>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           {amenities.map((amenity, index) => (
             <div
               key={index}

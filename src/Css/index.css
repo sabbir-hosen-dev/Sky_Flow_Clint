@@ -30,3 +30,21 @@
 .swiper-button-next, .swiper-button-prev {
   display: none !important;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-accentA/5 
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primaryP/10 rounded-2xl
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(241, 145, 61); /* Darker blue on hover */
+}

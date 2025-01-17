@@ -5,6 +5,7 @@ import Home from '../Pages/Home/Home';
 import SignIn from '../Pages/Auth/SignIn/SignIn';
 import SignUp from '../Pages/Auth/SignUp/SignUp';
 import Apartment from '../Pages/Apartment/Apartment';
+import AllApartments from '../Pages/Apartment/AllApartment/AllApartments';
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: "apartments",
+        element: <AllApartments />
       },
       {
         path: "apartments/:id",

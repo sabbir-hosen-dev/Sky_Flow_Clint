@@ -167,7 +167,7 @@ function Navber({ states }) {
             </NavLink>
             <NavLink
               onClick={() => setMenuOpen(false)}
-              to="/apartment"
+              to="apartments"
               className="links">
               Apartment
             </NavLink>
