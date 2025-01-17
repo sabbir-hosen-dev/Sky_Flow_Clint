@@ -16,12 +16,12 @@ const AllApartments = () => {
   // };
 
   // Use React Query to fetch paginated data with optional rent range filters
-  console.log(filter)
+  // console.log(filter)
   const { data, isLoading, isError } = useQuery({
     queryKey: ['apartments', currentPage, filter],
     queryFn: async () => {
       const requestURL = `/allapartments?page=${currentPage}&minRent=${filter?.min || ''}&maxRent=${filter?.max || ''}`;
-      console.log("Fetching Apartments From:", requestURL);
+      // console.log("Fetching Apartments From:", requestURL);
   
       const response = await axiosInt.get(requestURL);
       return response.data;

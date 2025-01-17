@@ -2,7 +2,7 @@
 import { BiUpload } from 'react-icons/bi';
 import signup from '../../../assets/signup.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowLeft, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import GoogleSignBtn from '../../../Components/Utlites/GoogleSignBtn/GoogleSignBtn';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -15,6 +15,7 @@ import auth from '../../../Firebase/firebase.config';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 import load from '../../../assets/loading.gif';
+import saveUser from '../../../Api/saveUser';
 
 function SignUp() {
   const SignUpSchema = Yup.object().shape({
@@ -22,6 +23,12 @@ function SignUp() {
     email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string()
       .min(6, 'Password too short')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .matches(
+        /[@$!%*?&]/,
+        'Password must contain at least one special character (@, $, !, %, *, ?, &)'
+      )
       .required('Password is required'),
     file: Yup.mixed()
       .required('Profile picture is required')
@@ -39,11 +46,12 @@ function SignUp() {
             ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type))
       ),
   });
-
+  const [eye, setEye] = useState(true);
   const [loadding, setLoadding] = useState(false);
 
   const { setUser, createUser } = useAuthContext();
   const navigate = useNavigate();
+  
 
   const handleSubmit = async (values, { resetForm }) => {
     setLoadding(true);
@@ -72,6 +80,13 @@ function SignUp() {
           email: email,
           photo: photoUrl,
         });
+
+        const newUser = {
+          name: name,
+          email: email,
+          photo: photoUrl,
+        };
+        saveUser(newUser);
 
         // Success message
         toast.success('Account Created Successfully!');
@@ -102,7 +117,7 @@ function SignUp() {
   };
 
   return (
-    <div className=" relative lg:py-20">
+    <div className=" relative py-10 lg:py-20">
       <Link
         to="/"
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
@@ -139,7 +154,7 @@ function SignUp() {
                         </p>
                         <Field
                           name="name"
-                          placeholder="sabbir"
+                          placeholder="name"
                           type="text"
                           className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
                         />
@@ -156,7 +171,7 @@ function SignUp() {
                         </p>
                         <Field
                           name="email"
-                          placeholder="sabbir@gmail.com"
+                          placeholder="example@gmail.com"
                           type="email"
                           className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
                         />
@@ -167,16 +182,31 @@ function SignUp() {
                         />
                       </div>
 
-                      <div>
-                        <p className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 font-medium text-textT absolute">
+                      <div className='relative'>
+                        <p className="bg-secondaryS pt-0 pr-2 pb-0  pl-2 -mt-3 font-medium text-textT absolute">
                           Password
                         </p>
-                        <Field
-                          name="password"
-                          placeholder="*******"
-                          type="password"
-                          className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
+                      
+                          <Field
+                            name="password"
+                            placeholder="*******"
+                            type={eye ? 'password' : 'text'}
+                            className="bg-secondaryS border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 text-base block border-gray-300 text-textT rounded-md"
+                          />
+                        <div className="absolute right-5 top-5 bottom-0">
+                        {eye ? (
+                        <AiOutlineEye
+                          onClick={() => setEye(false)}
+                          className="hover:text-primaryP cursor-pointer  transition-colors duration-300"
                         />
+                      ) : (
+                        <AiOutlineEyeInvisible
+                          onClick={() => setEye(true)}
+                          className="hover:text-primaryP cursor-pointer  transition-colors duration-300"
+                        />
+                      )}
+                        </div>
+                       
                         <ErrorMessage
                           name="password"
                           component="div"

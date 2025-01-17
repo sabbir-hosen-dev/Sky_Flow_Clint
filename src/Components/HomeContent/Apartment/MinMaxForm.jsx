@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 
-function MinMaxForm({ setFilter,setCurrentPage }) {
+function MinMaxForm({ setFilter }) {
 
 
   const handleSubmit = (e) => {

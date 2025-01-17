@@ -36,7 +36,7 @@ function SignIn() {
       });
   };
   return (
-    <div className=" relative lg:py-20">
+    <div className=" relative py-10 lg:py-20">
       <Link
         to="/"
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
@@ -63,7 +63,7 @@ function SignIn() {
                   </p>
                   <input
                     name="email"
-                    placeholder="sabbir@gmail.com"
+                    placeholder="example@gmail.com"
                     type="email"
                     required
                     className="bg-secondaryS border placeholder-gray-400 focus:outline-none 

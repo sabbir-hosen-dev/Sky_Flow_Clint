@@ -1,6 +1,5 @@
 import { GiStoneBlock } from 'react-icons/gi';
 import { AiOutlineBorderlessTable } from 'react-icons/ai';
-
 import { MdApartment } from 'react-icons/md';
 import {
   FaBed,
@@ -11,12 +10,17 @@ import {
 } from 'react-icons/fa';
 import GallerySlider from './../../Components/GallerySlider/GallerySlider';
 import { useQuery } from '@tanstack/react-query';
-import { axiosInt } from '../../Hooks/useAxios';
-import { useParams } from 'react-router-dom';
+import { axiosInt, useAxiosSecure } from '../../Hooks/useAxios';
+import { useNavigate, useParams } from 'react-router-dom';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
+import useAuthContext from '../../Hooks/useAuthContext';
+import toast from 'react-hot-toast';
 
 function Apartment() {
   const { id } = useParams();
+  const { user } = useAuthContext();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   const {
     isPending,
@@ -50,6 +54,44 @@ function Apartment() {
     title,
     // _id,
   } = apartment;
+
+
+  const handleAgreement = () => {
+ 
+    if (!user.email  ) {
+      navigate("/signin");
+      return;
+    }
+
+    const data = {
+      name: user.name,
+      email: user.email,
+      floorNo: floorNo,
+      apartmentNo: apartmentNo,
+      price: price,
+      status: 'pending',
+    };
+  
+    axiosSecure
+      .post(`/agreement?email=${user.email}`, data)
+      .then(res => {
+  
+        if (res.data.status === 'admin') {
+          return toast.error(res.data.message);
+        }
+        if (res.data.status === 'isExist') {
+          return toast.error(`${res.data.message}`);
+        }
+  
+        toast.success('Agreement processed successfully');
+      })
+      .catch(() => {
+        toast.error(' An error occurred. Please try again.');
+      });
+  };
+  
+  
+
   return (
     <div className="wrap">
       <GallerySlider images={images} />
@@ -152,8 +194,6 @@ function Apartment() {
               </span>
             </div>
           </div> */}
-
-
         </div>
 
         <h3 className="text-xl mt-5 font-bold  dark:text-white mb-4">
@@ -173,8 +213,10 @@ function Apartment() {
         </div>
 
         {/* Ask a Question Button */}
-        <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
-        Agreement
+        <button
+          onClick={handleAgreement}
+          className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
+          Agreement
         </button>
       </div>
     </div>

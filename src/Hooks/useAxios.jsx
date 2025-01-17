@@ -44,7 +44,7 @@ const useAxiosSecure = () => {
                   email: '',
                   photo: '',
                 });
-                navigate('/login', { replace: true });
+                navigate('/signin', { replace: true });
                 return;
               })
               .catch(err => console.log(err))

@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import ThemeTogole from '../../Utlites/ThemeTogole/ThemeTogole';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import { axiosInt } from '../../../Hooks/useAxios';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function Navber({ states }) {
   const { menuOpen, setMenuOpen, userDropdownOpen, setUserDropdownOpen } =
@@ -43,7 +43,7 @@ function Navber({ states }) {
     <nav
       className={`${
         isSticky
-          ? 'sticky z-[9999999999999] top-0 backdrop-blur-lg bg-backgroundB/30 shadow-md shadow-black/20 dark:shadow-gray-500/20'
+          ? 'sticky z-[99] top-0 backdrop-blur-lg bg-backgroundB/30 shadow-md shadow-black/20 dark:shadow-gray-500/20'
           : ''
       } border-gray-200`}>
       <div className="wrap flex flex-wrap items-center justify-between mx-auto p-4">
@@ -55,7 +55,6 @@ function Navber({ states }) {
             SkyFlow
           </span>
         </Link>
-        <Toaster position="top-right" />
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {!user.email && <ThemeTogole />}
           {/* User Dropdown */}
@@ -84,7 +83,7 @@ function Navber({ states }) {
                 )}
               </button>
               {userDropdownOpen && (
-                <div className="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-12 right-4">
+                <div className="z-50  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-12 right-4">
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900 dark:text-white">
                       {user.name}

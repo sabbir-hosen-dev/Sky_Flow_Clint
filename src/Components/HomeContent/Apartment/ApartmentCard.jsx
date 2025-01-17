@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
+
 
 function ApartmentCard({ apartment }) {
-  const {images,floorNo,title,blockNo,price,_id} = apartment;
+  const { images, floorNo, title, blockNo, price, _id } = apartment;
+
+
+
   return (
     <div className="bg-secondaryS/20 rounded-lg overflow-hidden shadow-2xl">
       <img
@@ -16,24 +20,30 @@ function ApartmentCard({ apartment }) {
             New
 
           </span> */}
-    
         </div>
         <h4 className=" font-semibold text-lg leading-tight truncate">
           {title}
         </h4>
 
         <div className="my-1 text-textT/70 text-xs uppercase font-semibold tracking-wide">
-            {floorNo} FLOOR &bull; {blockNo} BLOCK
-          </div>
+          {floorNo} FLOOR &bull; {blockNo} BLOCK
+        </div>
 
         <div className="mt-1">
           <span>${price}</span>
           <span className="text-textT/70 text-sm">/ month</span>
         </div>
         <div className="mt-3">
-          <Link  to={`apartments/${_id}`}className="card-btn">Agreement</Link>
+          <Link
+            to={
+              !location.pathname === '/apartments'
+                ? `/${_id}`
+                : `/apartments/${_id}`
+            }
+            className="card-btn">
+            Agreement
+          </Link>
         </div>
-        
       </div>
     </div>
   );
