@@ -6,10 +6,8 @@ import SignIn from '../Pages/Auth/SignIn/SignIn';
 import SignUp from '../Pages/Auth/SignUp/SignUp';
 import Apartment from '../Pages/Apartment/Apartment';
 import AllApartments from '../Pages/Apartment/AllApartment/AllApartments';
-
-
-
-
+import PrivetRoute from './PrivetRouter';
+import DashbordLayout from '../Layout/DashbordLayout';
 
 const router = createBrowserRouter([
   {
@@ -22,13 +20,13 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "apartments",
-        element: <AllApartments />
+        path: 'apartments',
+        element: <AllApartments />,
       },
       {
-        path: "apartments/:id",
-        element: <Apartment />
-      }
+        path: 'apartments/:id',
+        element: <Apartment />,
+      },
     ],
   },
   {
@@ -38,6 +36,17 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignUp />,
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <PrivetRoute>
+        <DashbordLayout />
+      </PrivetRoute>
+    ),
+    children : [
+
+    ]
   },
 ]);
 

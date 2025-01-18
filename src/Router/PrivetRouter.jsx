@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAuthContext from "../Hook/useAuthContext"
+import useAuthContext from "../Hooks/useAuthContext";
+
 
 
 

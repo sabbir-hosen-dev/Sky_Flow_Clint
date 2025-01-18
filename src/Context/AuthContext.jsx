@@ -10,9 +10,9 @@ export const AuthContext = createContext();
 const AuthContextProvider = ({children}) => {
 
   const [user, setUser] = useState({
-    name: '',
-    email: '',
-    photo: '',
+    name: 'name',
+    email: 'a@gmail.com',
+    photo: 'p',
   });
 
   const [loadding, setLoadding] = useState(true);

@@ -9,3 +9,4 @@ function DataNotFound() {
 }
 
 export default DataNotFound
+// https://flowbite-admin-dashboard.vercel.app/images/illustrations/500.svg
