@@ -13,6 +13,7 @@ import AdminProfile from '../Pages/Dashbord/AdminProfile';
 import MyProfile from '../Pages/Dashbord/MyProfile';
 import DashboardRedirect from '../Utility/DashbordRedirect';
 import AgreementRequest from '../Pages/Dashbord/AgreementRequest';
+import ManageMember from '../Pages/Dashbord/ManageMember';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AgreementRequest />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'manage-members',
+        element: (
+          <AdminRoute>
+            <ManageMember/>
           </AdminRoute>
         ),
       },

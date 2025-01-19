@@ -52,7 +52,7 @@ function Slider() {
                   <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
                     {slide.description}
                   </p>
-                  <button className="mt-8 px-6 py-3 bg-gray-50 dark:bg-accentA/30 hover:bg-white/20 rounded-full text-sm font-medium transition-all duration-300 hover:tracking-wider">
+                  <button className="mt-8 px-6 py-3 bg-gray-50 dark:bg-accentA/30 hover:bg-white/20 rounded-full text-sm  font-medium transition-all duration-300 hover:tracking-wider">
                     Learn More →
                   </button>
                 </div>

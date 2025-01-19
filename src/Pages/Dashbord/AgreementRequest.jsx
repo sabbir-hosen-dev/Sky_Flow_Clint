@@ -11,7 +11,7 @@ function AgreementRequest() {
     data: agreements = [],
     isLoading,
     error,
-    refetch,
+    refetch, 
   } = useQuery({
     queryKey: ['agreements'],
     queryFn: async () => {
@@ -24,24 +24,33 @@ function AgreementRequest() {
   if (error) return <DataNotFound />;
 
   const handleAccepted = (id, email) => {
+
     // console.log('Accepting agreement for:', email);
+    const newData = {
+      email : email,
+      status : "approved"
+    }
+
     axiosSecure
-      .patch(`/agreements/update/${id}`, { email })
+      .patch(`/agreements/update/${id}`, newData )
       .then(res => {
         console.log('Update Response:', res.data);
-        refetch();
+        // if (res.data.modifiedCount > 0) {
+          refetch();
+        // }
       })
       .catch(err => console.error('Error in handleAccepted:', err));
   };
 
-  const handleRejected = id => {
-    // console.log('Rejecting agreement ID:', id);
+  const handleRejected = (id) => {
+    console.log('Rejecting agreement ID:', id);
     axiosSecure
       .patch(`/agreements/reject/${id}`)
-      .then(()=> {
-        // console.log('Rejection Response:', res.data);
-
-        refetch(); 
+      .then(res => {
+        console.log('Rejection Response:', res.data);
+        // if (res.data.modifiedCount > 0) {
+          refetch(); // ✅ রিফ্রেশ করবে
+        // }
       })
       .catch(err => console.error('Error in handleRejected:', err));
   };
@@ -88,28 +97,25 @@ function AgreementRequest() {
                 <td className="py-5 px-4">{agreement.apartmentNo}</td>
                 <td className="py-5 px-4">${agreement.rent}</td>
                 <td className="py-5 px-4">
-                  {new Date(agreement.agreementDate).toLocaleDateString(
-                    'en-GB',
-                    {
-                      day: '2-digit',
-                      month: '2-digit',
-                      year: '2-digit',
-                    }
-                  )}
+                  {new Date(agreement.agreementDate).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit',
+                  })}
                 </td>
 
                 <td className="py-5 px-4">
                   <div className="flex space-x-2">
                     <button
-                      onClick={() =>
-                        handleAccepted(agreement._id, agreement.email)
-                      }
-                      className="bg-green-500 text-white text-xs px-3 py-1 rounded hover:bg-green-600">
+                      onClick={() => handleAccepted(agreement._id, agreement.email)}
+                      className="bg-green-500 text-white text-xs px-3 py-1 rounded hover:bg-green-600"
+                    >
                       Accept
                     </button>
                     <button
                       onClick={() => handleRejected(agreement._id)}
-                      className="bg-red-500 text-white text-xs px-3 py-1 rounded hover:bg-red-600">
+                      className="bg-red-500 text-white text-xs px-3 py-1 rounded hover:bg-red-600"
+                    >
                       Reject
                     </button>
                   </div>

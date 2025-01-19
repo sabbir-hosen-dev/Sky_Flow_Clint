@@ -4,6 +4,8 @@ import { axiosInt } from '../../../Hooks/useAxios';
 import Pagination from '../../../Components/Pageination/Pagination';
 import ApartmentCard from '../../../Components/HomeContent/Apartment/ApartmentCard';
 import MinMaxForm from '../../../Components/HomeContent/Apartment/MinMaxForm';
+import Loadding from '../../Loadding';
+import DataNotFound from '../../../Components/NotFound&Loading/DataNotFound';
 
 const AllApartments = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,8 +32,8 @@ const AllApartments = () => {
   });
   
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading data</p>;
+  if (isLoading) return <Loadding />
+  if (isError) return <DataNotFound />
 
   const apartments = data.data || [];
   const totalPages = data.totalPages || 1;

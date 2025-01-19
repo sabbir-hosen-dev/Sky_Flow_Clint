@@ -15,6 +15,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import useAuthContext from '../../Hooks/useAuthContext';
 import toast from 'react-hot-toast';
+import Loadding from '../Loadding';
 
 function Apartment() {
   const { id } = useParams();
@@ -32,7 +33,7 @@ function Apartment() {
   });
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <Loadding />;
   }
 
   {
@@ -82,6 +83,9 @@ function Apartment() {
           return toast.error(res.data.message);
         }
         if (res.data.status === 'isExist') {
+          return toast.error(`${res.data.message}`);
+        }
+        if (res.data.status === 'alreadyMember') {
           return toast.error(`${res.data.message}`);
         }
 
@@ -200,7 +204,7 @@ function Apartment() {
           Apartment Amenities
         </h3>
         <div className="flex flex-wrap gap-3">
-          {amenities.map((amenity, index) => (
+          {amenities?.map((amenity, index) => (
             <div
               key={index}
               className="flex items-center space-x-2 px-4 p-2 border text-textT rounded-md b">
