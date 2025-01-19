@@ -3,8 +3,9 @@ import { BiMoon, BiSun } from 'react-icons/bi';
 import useThemeContext from '../../../Hooks/useThemeContext';
 
 const SwitchTOgole = () => {
-  const [enabled, setEnabled] = useState(false);
-  const { setTheme } = useThemeContext();
+
+  const { theme,setTheme } = useThemeContext();
+  const [enabled, setEnabled] = useState(theme);
   useEffect(() => {
     setTheme(enabled)
   },[enabled, setTheme])

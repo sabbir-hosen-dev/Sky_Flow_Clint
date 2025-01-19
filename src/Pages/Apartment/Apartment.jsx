@@ -47,19 +47,19 @@ function Apartment() {
     description,
     floorNo,
     images,
-    price,
+    rent,
     rooms,
     size,
     amenities,
+
+    availableFrom,
     title,
     // _id,
   } = apartment;
 
-
   const handleAgreement = () => {
- 
-    if (!user.email  ) {
-      navigate("/signin");
+    if (!user.email) {
+      navigate('/signin');
       return;
     }
 
@@ -67,30 +67,30 @@ function Apartment() {
       name: user.name,
       email: user.email,
       floorNo: floorNo,
+      blockNo: blockNo,
       apartmentNo: apartmentNo,
-      price: price,
+      rent: rent,
       status: 'pending',
+
+      availableFrom: availableFrom,
     };
-  
+
     axiosSecure
       .post(`/agreement?email=${user.email}`, data)
       .then(res => {
-  
         if (res.data.status === 'admin') {
           return toast.error(res.data.message);
         }
         if (res.data.status === 'isExist') {
           return toast.error(`${res.data.message}`);
         }
-  
+
         toast.success('Agreement processed successfully');
       })
       .catch(() => {
         toast.error(' An error occurred. Please try again.');
       });
   };
-  
-  
 
   return (
     <div className="wrap">
@@ -100,7 +100,7 @@ function Apartment() {
         {/* Header Section */}
         <div className="flex justify-between items-center border-b dark:border-gray-900 pb-4 mb-4">
           <h2 className="text-2xl font-bold">{title}</h2>
-          <h4 className="text-2xl font-bold text-textT/90">${price}</h4>
+          <h4 className="text-2xl font-bold text-textT/90">${rent}</h4>
         </div>
 
         <div className="mb-2  text-textT/80">{description}</div>
@@ -203,9 +203,9 @@ function Apartment() {
           {amenities.map((amenity, index) => (
             <div
               key={index}
-              className="flex items-center space-x-2 px-4 p-2 border rounded-md bg-gray-50 dark:bg-gray-900 dark:border-gray-950">
+              className="flex items-center space-x-2 px-4 p-2 border text-textT rounded-md b">
               <FaCheckCircle className="text-green-500" />
-              <span className="text-textT/70 dark:text-gray-300 font-medium">
+              <span className="text-textT/70 font-medium">
                 {amenity}
               </span>
             </div>

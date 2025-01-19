@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-import { Link  } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function ApartmentCard({ apartment }) {
-  const { images, floorNo, title, blockNo, price, _id } = apartment;
-
+  const { images, floorNo, title, blockNo, rent, _id } = apartment;
 
 
   return (
@@ -30,7 +28,7 @@ function ApartmentCard({ apartment }) {
         </div>
 
         <div className="mt-1">
-          <span>${price}</span>
+          <span>${rent}</span>
           <span className="text-textT/70 text-sm">/ month</span>
         </div>
         <div className="mt-3">
@@ -55,7 +53,7 @@ ApartmentCard.propTypes = {
     floorNo: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     blockNo: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    rent: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
   }).isRequired,
 };

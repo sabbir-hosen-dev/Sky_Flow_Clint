@@ -8,6 +8,11 @@ import Apartment from '../Pages/Apartment/Apartment';
 import AllApartments from '../Pages/Apartment/AllApartment/AllApartments';
 import PrivetRoute from './PrivetRouter';
 import DashbordLayout from '../Layout/DashbordLayout';
+import AdminRoute from './AdminRoute';
+import AdminProfile from '../Pages/Dashbord/AdminProfile';
+import MyProfile from '../Pages/Dashbord/MyProfile';
+import DashboardRedirect from '../Utility/DashbordRedirect';
+import AgreementRequest from '../Pages/Dashbord/AgreementRequest';
 
 const router = createBrowserRouter([
   {
@@ -42,11 +47,35 @@ const router = createBrowserRouter([
     element: (
       <PrivetRoute>
         <DashbordLayout />
+        <DashboardRedirect />
       </PrivetRoute>
     ),
-    children : [
+    children: [
 
-    ]
+      // user 
+      {
+        path: "profile",
+        element : <MyProfile />
+      },
+
+      // admin 
+      {
+        path: 'admin-profile',
+        element: (
+          <AdminRoute>
+            <AdminProfile />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'aggrement-requests',
+        element: (
+          <AdminRoute>
+            <AgreementRequest />
+          </AdminRoute>
+        ),
+      },
+    ],
   },
 ]);
 

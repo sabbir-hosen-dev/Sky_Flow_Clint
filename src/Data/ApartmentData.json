@@ -2,15 +2,14 @@
   {
     "title": "1st Floor - Apartment 1",
     "description": "Cozy 1-bedroom apartment in a quiet building.",
-    "price": 800,
     "rooms": 2,
     "bedrooms": 1,
     "bathrooms": 1,
     "size": 600,
     "floorNo": 1,
-    "blockNo": 7,
-    "apartmentNo": 101,
-    "rent": true,
+    "blockNo": "A",
+    "apartmentNo": "A-101",
+    "rent": 900,
     "status": "available",
     "location": {
       "address": "Building 7, 1st Floor, 123 Main St, City, State",
@@ -20,7 +19,7 @@
     "amenities": ["Elevator", "Parking", "24/7 Security"],
     "availableFrom": "2025-02-01",
     "images": [
-      "hhttps://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/property-05.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/property-05.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_05.webp",
       "https://ar.rdcpix.com/16de98bdb09cc9fb6ecb329211201e03c-f2432407961rd-w480_h360.jpg",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_03.webp",
@@ -30,15 +29,14 @@
   {
     "title": "2nd Floor - Apartment 2",
     "description": "Spacious 2-bedroom apartment with a great view.",
-    "price": 1000,
     "rooms": 3,
     "bedrooms": 2,
     "bathrooms": 1,
     "size": 750,
     "floorNo": 2,
-    "blockNo": 7,
-    "apartmentNo": 201,
-    "rent": true,
+    "blockNo": "B",
+    "apartmentNo": "B-201",
+    "rent": 1000,
     "status": "available",
     "location": {
       "address": "Building 7, 2nd Floor, 123 Main St, City, State",
@@ -48,7 +46,7 @@
     "amenities": ["Gym", "Swimming Pool", "Elevator"],
     "availableFrom": "2025-03-01",
     "images": [
-      "hhttps://protywpv2.live.vithemes.com/wp-content/uploads/2024/08/property-01.webp",
+      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/08/property-01.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_09.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_03.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_08.webp",
@@ -58,15 +56,14 @@
   {
     "title": "3rd Floor - Apartment 3",
     "description": "Affordable 2-bedroom apartment with basic amenities.",
-    "price": 900,
     "rooms": 3,
     "bedrooms": 2,
     "bathrooms": 1,
     "size": 700,
     "floorNo": 3,
-    "blockNo": 7,
-    "apartmentNo": 301,
-    "rent": true,
+    "blockNo": "C",
+    "apartmentNo": "C-301",
+    "rent": 1200,
     "status": "available",
     "location": {
       "address": "Building 7, 3rd Floor, 123 Main St, City, State",
@@ -76,24 +73,23 @@
     "amenities": ["Parking", "Elevator", "Pet Friendly"],
     "availableFrom": "2025-02-15",
     "images": [
-      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/property-05.webp",
-      "https://images1.apartments.com/i2/Qv9tYXHR3GyvkzkgdnktCOU3lqkphvwoUZU2F2Vo0Sc/117/image.jpg",
-      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_14.webp",
-      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_03.webp",
-      "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style03_02.webp"
+      "https://plus.unsplash.com/premium_photo-1661877303180-19a028c21048?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://t3.ftcdn.net/jpg/02/94/19/40/360_F_294194023_disE35GtlVLDQx4caNDaWewZI8LbxWFQ.jpg",
+      "https://t3.ftcdn.net/jpg/02/71/08/28/360_F_271082810_CtbTjpnOU3vx43ngAKqpCPUBx25udBrg.jpg",
+      "https://t3.ftcdn.net/jpg/02/94/19/40/360_F_294194023_disE35GtlVLDQx4caNDaWewZI8LbxWFQ.jpg",
+      "https://t3.ftcdn.net/jpg/09/40/32/70/360_F_940327013_NBIZs2TiTsWbq20cgKYjJUGjxwl5RpYn.jpg"
     ]
   },
   {
     "title": "4th Floor - Apartment 4",
     "description": "Luxurious 3-bedroom apartment with a large balcony.",
-    "price": 1500,
     "rooms": 4,
     "bedrooms": 3,
     "bathrooms": 2,
     "size": 1200,
     "floorNo": 4,
-    "blockNo": 7,
-    "apartmentNo": 401,
+    "blockNo": "D",
+    "apartmentNo": "D-401",
     "rent": true,
     "status": "available",
     "location": {
@@ -101,11 +97,17 @@
       "neighborhood": "Near Metro Station",
       "zipCode": "12345"
     },
-    "amenities": ["Balcony", "Elevator", "Gym", "Swimming Pool", "24/7 Security"],
+    "amenities": [
+      "Balcony",
+      "Elevator",
+      "Gym",
+      "Swimming Pool",
+      "24/7 Security"
+    ],
     "availableFrom": "2025-03-01",
     "images": [
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/08/property-01.webp",
-      "https://rentpath-res.cloudinary.com/t_3x2_fixed_webp_lg/e5c07212809c9b75c77000a9a5f1d35a",
+      "https://t3.ftcdn.net/jpg/02/94/19/40/360_F_294194023_disE35GtlVLDQx4caNDaWewZI8LbxWFQ.jpg",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_09.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_06.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_10.webp"
@@ -114,15 +116,14 @@
   {
     "title": "5th Floor - Apartment 5",
     "description": "Modern 1-bedroom apartment with open-plan living.",
-    "price": 950,
     "rooms": 2,
     "bedrooms": 1,
     "bathrooms": 1,
     "size": 650,
     "floorNo": 5,
-    "blockNo": 7,
-    "apartmentNo": 501,
-    "rent": true,
+    "blockNo": "E",
+    "apartmentNo": "E-501",
+    "rent": "1000",
     "status": "available",
     "location": {
       "address": "Building 7, 5th Floor, 123 Main St, City, State",
@@ -132,8 +133,8 @@
     "amenities": ["Elevator", "Parking", "24/7 Security"],
     "availableFrom": "2025-02-10",
     "images": [
-      "https://static.vecteezy.com/system/resources/previews/016/478/810/large_2x/interior-of-a-house-under-construction-renovation-of-an-apartment-photo.jpg",
-      "https://images1.apartments.com/i2/h7haZEE_CPwGrJwZ7dNzS5oNxvrH-A8xE-PCb-hTwrA/117/black-pine-flats-fort-wayne-in-2-bed-1-bath-kitchen.jpg?p=1",
+      "https://www.zinus.com.sg/cdn/shop/articles/5-bedroom-design-ideas-to-transform-it-into-a-luxury-hotel-suite.jpg?v=1669103710",
+      "https://i.pinimg.com/550x/3a/c1/1c/3ac11c729ddad7f6d2964cb9fca07d4e.jpg",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_16.webp",
       "https://protywpv2.live.vithemes.com/wp-content/uploads/2024/07/style02_01.webp",
       "https://photos.zillowstatic.com/fp/9484b36269696972ffff148684cf965e-p_e.jpg"
@@ -142,14 +143,13 @@
   {
     "title": "6th Floor - Apartment 6",
     "description": "Bright 2-bedroom apartment with a great view of the city.",
-    "price": 1100,
     "rooms": 3,
     "bedrooms": 2,
     "bathrooms": 1,
     "size": 800,
     "floorNo": 6,
-    "blockNo": 7,
-    "apartmentNo": 601,
+    "blockNo": "F",
+    "apartmentNo": "F-601",
     "rent": true,
     "status": "available",
     "location": {
@@ -160,11 +160,344 @@
     "amenities": ["Elevator", "Gym", "Swimming Pool", "Parking"],
     "availableFrom": "2025-02-20",
     "images": [
-      "https://media.architecturaldigest.com/photos/64b7e1626049f7ce20b67014/16:9/w_2048,h_1152,c_limit/89-00%20170th%20St%207E%20LR%20VS%20ALC%20WIDE%20SHOT_finalCC-2.jpg",
-      "https://imagescdn.homes.com/i2/wtmuuTtnB-Bd2kNVWf-qr5ji5rSuyPanx8qvJ8vkdW4/117/1004-1006-fayette-dr-fort-wayne-in-buildingphoto-2.jpg?p=1",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQznEfarGnys8OlsDy-BMo4T2z0HBCRIhoJR3wi7sXIpY5Z0o1OhaETpnPV_fS42BZve30&usqp=CAU",
+      "https://www.oppeinhome.com/upload/image/product/thumb/20211009/white-grey-beige-modern-hotel-wood-grain1.jpg",
       "https://cdn.hometogo.net/medium/v1/8a4/b77/0f6beb02550a94ba14d5a4a15c.jpg",
       "https://www.momondo.com/himg/f1/91/b3/expedia_group-8055957-4b9ed4-139484.jpg",
       "https://a0.muscache.com/im/pictures/airflow/Hosting-31613993/original/5f0826d4-50d8-4fdd-9544-74a2833d8699.jpg?im_w=720&im_format=avif"
+    ]
+  },
+  {
+    "title": "7th Floor - Apartment 7",
+    "description": "Sunny 3-bedroom apartment with a large balcony.",
+    "rooms": 4,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": 1250,
+    "floorNo": 7,
+    "blockNo": "G",
+    "apartmentNo": "G-701",
+    "rent": 1500,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 7th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Parks",
+      "zipCode": "12345"
+    },
+    "amenities": [
+      "Balcony",
+      "Elevator",
+      "Gym",
+      "Swimming Pool",
+      "24/7 Security"
+    ],
+    "availableFrom": "2025-03-15",
+    "images": [
+      "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_640.jpg",
+      "https://cdn.pixabay.com/photo/2018/01/03/16/25/room-3058660_1280.jpg",
+      "https://i.pinimg.com/550x/3a/c1/1c/3ac11c729ddad7f6d2964cb9fca07d4e.jpg",
+      "https://media.designcafe.com/wp-content/uploads/2020/03/21013143/small-bathroom-ideas-with-mirrors.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT79vJRw0bA8TTVgl41fvO8u1XPEjNUK5k9r1R8UbSk5C8rVpbTgVjQ9eiqlrv8MFHNP3E&usqp=CAU"
+    ]
+  },
+  {
+    "title": "8th Floor - Apartment 8",
+    "description": "Charming 1-bedroom apartment with a fireplace.",
+    "rooms": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 500,
+    "floorNo": 8,
+    "blockNo": "H",
+    "apartmentNo": "H-801",
+    "rent": 800,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 8th Floor, 123 Main St, City, State",
+      "neighborhood": "Historic District",
+      "zipCode": "12345"
+    },
+    "amenities": ["Fireplace", "Elevator", "Parking"],
+    "availableFrom": "2025-04-01",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFoii0JfQP68ITzdGaiSivvY_K9VFRD9ZRW9Jk7LCrdNL-IhSqDiAKG-P2ujMueBRcdU0&usqp=CAU",
+      "https://images.pexels.com/photos/1363772/pexels-photo-1363772.jpeghttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEZuuELkNmxTV-rd1xkc071QPvXua9tjAPil3NEMvcj_iZtr-UqSh5ZM4PPtdhHwexJk&usqp=CAUhttps://media.designcafe.com/wp-content/uploads/2020/03/21013143/small-bathroom-ideas-with-mirrors.jpg",
+      "https://cdn.pixabay.com/photo/2018/01/03/16/25/room-3058660_1280.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT79vJRw0bA8TTVgl41fvO8u1XPEjNUK5k9r1R8UbSk5C8rVpbTgVjQ9eiqlrv8MFHNP3E&usqp=CAU"
+    ]
+  },
+  {
+    "title": "9th Floor - Apartment 9",
+    "description": "Spacious 4-bedroom apartment with a modern design.",
+    "rooms": 5,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "size": 1600,
+    "floorNo": 9,
+    "blockNo": "I",
+    "apartmentNo": "I-901",
+    "rent": 1800,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 9th Floor, 123 Main St, City, State",
+      "neighborhood": "Central Business District",
+      "zipCode": "12345"
+    },
+    "amenities": [
+      "Elevator",
+      "Gym",
+      "Swimming Pool",
+      "Balcony",
+      "24/7 Security"
+    ],
+    "availableFrom": "2025-04-15",
+    "images": [
+      "https://en.idei.club/uploads/posts/2023-08/thumbs/1690900935_en-idei-club-p-small-room-design-pinterest-dizain-vkontak-23.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGgMr9YphJzoVlWY_zvWfitJe2O60oSze2ZJ4T5AGuNsg6QbPSbL4AkCOGZbfA_OlgCrI&usqp=CAU",
+      "v",
+      "https://kallumsbathrooms.co.uk/wp-content/uploads/2021/11/A7A2831.jpg",
+      "https://en.idei.club/uploads/posts/2023-08/thumbs/1690900935_en-idei-club-p-small-room-design-pinterest-dizain-vkontak-23.jpg"
+    ]
+  },
+  {
+    "title": "10th Floor - Apartment 10",
+    "description": "Luxurious penthouse with a rooftop garden.",
+    "rooms": 6,
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "size": 2500,
+    "floorNo": 10,
+    "blockNo": "J",
+    "apartmentNo": "J-1001",
+    "rent": 3000,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 10th Floor, 123 Main St, City, State",
+      "neighborhood": "Skyline View",
+      "zipCode": "12345"
+    },
+    "amenities": [
+      "Rooftop Garden",
+      "Gym",
+      "Elevator",
+      "Swimming Pool",
+      "24/7 Security"
+    ],
+    "availableFrom": "2025-05-01",
+    "images": [
+      "https://i.ytimg.com/vi/EFgEtsERD-o/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC-UFs6Arl27U626C35e5RbJEj-iQ",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw1Sy9Sqxjq0OSgNyLSvodx6VAdrH80oyr7Es9HfbeN_ynMeQpRb8lrAdQf7R273UM3rY&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8c0qN3BaE5bP03U67J6ZluxWX9Rtu8IDizEqhk0Eo6Rklju0gq72nev42h2NRXoc9fs&usqp=CAU",
+      "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_640.jpg"
+    ]
+  },
+  {
+    "title": "11th Floor - Apartment 11",
+    "description": "Modern 2-bedroom apartment with a study room.",
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 800,
+    "floorNo": 11,
+    "blockNo": "K",
+    "apartmentNo": "K-1101",
+    "rent": 1300,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 11th Floor, 123 Main St, City, State",
+      "neighborhood": "Business District",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Gym", "Study Room", "24/7 Security"],
+    "availableFrom": "2025-05-15",
+    "images": [
+      "https://thumbs.dreamstime.com/b/japandi-bedroom-wooden-walls-frame-mockup-beige-tones-double-bed-pillows-carpets-decors-minimal-interior-design-271402725.jpg",
+      "https://centurycabinets.ca/wp-content/uploads/2022/07/chiken8.jpeg",
+      "https://kallumsbathrooms.co.uk/wp-content/uploads/2021/11/A7A2831.jpg"
+    ]
+  },
+  {
+    "title": "12th Floor - Apartment 12",
+    "description": "Cozy studio apartment with a beautiful city view.",
+    "rooms": 1,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 400,
+    "floorNo": 12,
+    "blockNo": "L",
+    "apartmentNo": "L-1201",
+    "rent": 600,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 12th Floor, 123 Main St, City, State",
+      "neighborhood": "Downtown",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "City View", "24/7 Security"],
+    "availableFrom": "2025-06-01",
+    "images": [
+      "https://thumbs.dreamstime.com/b/empty-white-interior-white-walls-herringbone-parquet-wooden-floor-custom-architecture-design-project-black-ink-sketch-199485277.jpg",
+      "https://thumbs.dreamstime.com/b/architect-interior-designer-concept-unfinished-project-becomes-real-modern-bedroom-classic-room-wall-moldings-158749037.jpg",
+      "https://shop.gkwretail.com/cdn/shop/articles/modular_kitchen.jpg?v=1673867476&width=1100"
+    ]
+  },
+  {
+    "title": "13th Floor - Apartment 13",
+    "description": "Spacious 3-bedroom apartment with a walk-in closet.",
+    "rooms": 4,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": 1100,
+    "floorNo": 13,
+    "blockNo": "M",
+    "apartmentNo": "M-1301",
+    "rent": 1500,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 13th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Metro Station",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Gym", "Walk-in Closet", "24/7 Security"],
+    "availableFrom": "2025-06-10",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_b-YTwImwx9xjkL6YE5MMK1rxqNgkC1_7Q&s",
+      "https://static.vecteezy.com/system/resources/thumbnails/028/246/009/small_2x/colored-minimalis-living-room-design-simple-fictional-sophisticated-product-design-furniture-design-white-background-generative-ai-photo.jpg"
+    ]
+  },
+  {
+    "title": "14th Floor - Apartment 14",
+    "description": "Charming 2-bedroom apartment with hardwood floors.",
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 950,
+    "floorNo": 14,
+    "blockNo": "N",
+    "apartmentNo": "N-1401",
+    "rent": 1250,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 14th Floor, 123 Main St, City, State",
+      "neighborhood": "Residential Area",
+      "zipCode": "12345"
+    },
+    "amenities": ["Hardwood Floors", "Elevator", "Parking", "24/7 Security"],
+    "availableFrom": "2025-06-20",
+    "images": [
+      "https://static.vecteezy.com/system/resources/thumbnails/028/246/009/small_2x/colored-minimalis-living-room-design-simple-fictional-sophisticated-product-design-furniture-design-white-background-generative-ai-photo.jpg",
+      "https://images.pexels.com/photos/4751573/pexels-photo-4751573.jpeghttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_b-YTwImwx9xjkL6YE5MMK1rxqNgkC1_7Q&shttps://images.pexels.com/photos/1824281/pexels-photo-1824281.jpeg"
+    ]
+  },
+  {
+    "title": "15th Floor - Apartment 15",
+    "description": "Luxury 4-bedroom penthouse with panoramic views.",
+    "rooms": 5,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "size": 1800,
+    "floorNo": 15,
+    "blockNo": "O",
+    "apartmentNo": "O-1501",
+    "rent": 2500,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 15th Floor, 123 Main St, City, State",
+      "neighborhood": "City Center",
+      "zipCode": "12345"
+    },
+    "amenities": [
+      "Panoramic Views",
+      "Rooftop Terrace",
+      "Elevator",
+      "24/7 Security",
+      "Gym"
+    ],
+    "availableFrom": "2025-07-01",
+    "images": [
+      "https://static.vecteezy.com/system/resources/previews/022/874/698/non_2x/mockup-poster-frame-on-the-wall-of-living-room-luxurious-apartment-background-with-contemporary-design-modern-interior-design-3d-render-3d-illustration-generate-ai-free-photo.jpg",
+      "https://static.vecteezy.com/system/resources/thumbnails/028/246/009/small_2x/colored-minimalis-living-room-design-simple-fictional-sophisticated-product-design-furniture-design-white-background-generative-ai-photo.jpg",
+      "https://centurycabinets.ca/wp-content/uploads/2022/07/chiken8.jpeg"
+    ]
+  },
+  {
+    "title": "16th Floor - Apartment 16",
+    "description": "Cozy studio apartment with a compact kitchen.",
+    "rooms": 1,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 450,
+    "floorNo": 16,
+    "blockNo": "P",
+    "apartmentNo": "P-1601",
+    "rent": 700,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 16th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Restaurants",
+      "zipCode": "12345"
+    },
+    "amenities": ["Elevator", "Compact Kitchen", "24/7 Security"],
+    "availableFrom": "2025-07-15",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEZuuELkNmxTV-rd1xkc071QPvXua9tjAPil3NEMvcj_iZtr-UqSh5ZM4PPtdhHwexJk&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_b-YTwImwx9xjkL6YE5MMK1rxqNgkC1_7Q&s",
+      "https://cdn.pixabay.com/photo/2018/01/03/16/25/room-3058660_1280.jpg",
+      "https://cdn.pixabay.com/photo/2018/01/03/16/25/room-3058660_1280.jpg",
+      "https://static.vecteezy.com/system/resources/previews/022/874/698/non_2x/mockup-poster-frame-on-the-wall-of-living-room-luxurious-apartment-background-with-contemporary-design-modern-interior-design-3d-render-3d-illustration-generate-ai-free-photo.jpg"
+    ]
+  },
+  {
+    "title": "17th Floor - Apartment 17",
+    "description": "Bright and spacious 2-bedroom apartment with a balcony.",
+    "rooms": 3,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 1000,
+    "floorNo": 17,
+    "blockNo": "Q",
+    "apartmentNo": "Q-1701",
+    "rent": 1400,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 17th Floor, 123 Main St, City, State",
+      "neighborhood": "Near Parks",
+      "zipCode": "12345"
+    },
+    "amenities": ["Balcony", "Elevator", "Gym", "24/7 Security"],
+    "availableFrom": "2025-08-01",
+    "images": [
+      "https://cdn.pixabay.com/photo/2018/01/03/16/25/room-3058660_1280.jpg",
+      "https://static.vecteezy.com/system/resources/thumbnails/028/246/009/small_2x/colored-minimalis-living-room-design-simple-fictional-sophisticated-product-design-furniture-design-white-background-generative-ai-photo.jpg",
+      "https://i.pinimg.com/550x/3a/c1/1c/3ac11c729ddad7f6d2964cb9fca07d4e.jpg",
+      "https://thumbs.dreamstime.com/b/empty-white-interior-white-walls-herringbone-parquet-wooden-floor-custom-architecture-design-project-black-ink-sketch-199485277.jpg"
+    ]
+  },
+  {
+    "title": "18th Floor - Apartment 18",
+    "description": "Spacious 3-bedroom apartment with a home office.",
+    "rooms": 4,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": 1200,
+    "floorNo": 18,
+    "blockNo": "R",
+    "apartmentNo": "R-1801",
+    "rent": 1700,
+    "status": "available",
+    "location": {
+      "address": "Building 7, 18th Floor, 123 Main St, City, State",
+      "neighborhood": "Business Hub",
+      "zipCode": "12345"
+    },
+    "amenities": ["Home Office", "Elevator", "Gym", "24/7 Security"],
+    "availableFrom": "2025-08-10",
+    "images": [
+      "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_640.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEZuuELkNmxTV-rd1xkc071QPvXua9tjAPil3NEMvcj_iZtr-UqSh5ZM4PPtdhHwexJk&usqp=CAU",
+      "https://media.designcafe.com/wp-content/uploads/2020/03/21013143/small-bathroom-ideas-with-mirrors.jpg",
+      "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_640.jpg",
+      "https://i.pinimg.com/550x/3a/c1/1c/3ac11c729ddad7f6d2964cb9fca07d4e.jpg"
     ]
   }
 ]
