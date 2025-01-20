@@ -16,7 +16,7 @@ function Announcements() {
   });
 
   
-  console.log(announcementsData)
+
 
   if (isLoading) return <Spinner />;
   if (error) return <DataNotFound />;
