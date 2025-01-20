@@ -14,6 +14,9 @@ import MyProfile from '../Pages/Dashbord/MyProfile';
 import DashboardRedirect from '../Utility/DashbordRedirect';
 import AgreementRequest from '../Pages/Dashbord/AgreementRequest';
 import ManageMember from '../Pages/Dashbord/ManageMember';
+import MemberRoute from './MemberRoute';
+import Payment from '../Pages/Dashbord/Payment';
+import ManageCoupons from '../Pages/Dashbord/ManageCoupons';
 
 const router = createBrowserRouter([
   {
@@ -48,18 +51,21 @@ const router = createBrowserRouter([
     element: (
       <PrivetRoute>
         <DashbordLayout />
-        <DashboardRedirect />
       </PrivetRoute>
     ),
     children: [
-
-      // user 
       {
-        path: "profile",
-        element : <MyProfile />
+        index: true,
+        element: <DashboardRedirect />,
       },
 
-      // admin 
+      // User Profile Route
+      {
+        path: 'profile',
+        element: <MyProfile />,
+      },
+
+      // Admin Routes
       {
         path: 'admin-profile',
         element: (
@@ -80,8 +86,26 @@ const router = createBrowserRouter([
         path: 'manage-members',
         element: (
           <AdminRoute>
-            <ManageMember/>
+            <ManageMember />
           </AdminRoute>
+        ),
+      },
+      {
+        path: 'manage-coupons',
+        element: (
+          <AdminRoute>
+            <ManageCoupons />
+          </AdminRoute>
+        ),
+      },
+
+      //member route
+      {
+        path: 'payment',
+        element: (
+          <MemberRoute>
+            <Payment />
+          </MemberRoute>
         ),
       },
     ],

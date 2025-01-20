@@ -19,7 +19,7 @@ const CouponCard = ({ code, discount, description }) => {
       bg-[rgba(241,145,61,1)] text-white dark:bg-[rgb(23,23,23)] dark:text-gray-200"
       whileHover={{ y: -5 }}
     >
-      <span className="text-lg font-bold">{discount} OFF</span>
+      <span className="text-lg font-bold">{discount}% OFF</span>
       <p className="text-sm">{description}</p>
       <div className="bg-white text-orange-600 font-bold px-4 py-2 rounded-md flex items-center gap-2 dark:bg-gray-700 dark:text-orange-300">
         <span>{code}</span>

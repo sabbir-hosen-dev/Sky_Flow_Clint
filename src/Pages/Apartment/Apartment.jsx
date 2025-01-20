@@ -55,7 +55,7 @@ function Apartment() {
 
     availableFrom,
     title,
-    // _id,
+    _id
   } = apartment;
 
   const handleAgreement = () => {
@@ -65,11 +65,13 @@ function Apartment() {
     }
 
     const data = {
+
       name: user.name,
       email: user.email,
       floorNo: floorNo,
       blockNo: blockNo,
       apartmentNo: apartmentNo,
+      apartmentId:_id,
       rent: rent,
       status: 'pending',
 

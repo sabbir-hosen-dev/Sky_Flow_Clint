@@ -49,7 +49,7 @@ function Slider() {
                   <h2 className="mt-4 text-5xl md:text-5xl xl:text-6xl  font-bold leading-none bg-gradient-to-r from-textT to-textT bg-clip-text text-transparent">
                     {slide.title}
                   </h2>
-                  <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
+                  <p className="mt-6 text-textT/70 text-lg leading-relaxed">
                     {slide.description}
                   </p>
                   <button className="mt-8 px-6 py-3 bg-gray-50 dark:bg-accentA/30 hover:bg-white/20 rounded-full text-sm  font-medium transition-all duration-300 hover:tracking-wider">

@@ -6,15 +6,19 @@ import useAuthContext from './useAuthContext';
 
 
 // http://localhost:9000
+// https://sky-flow-server.vercel.app
+
+const url = "https://sky-flow-server.vercel.app"
+// const url = "http://localhost:9000"
 
 const axiosInt = axios.create({
-  baseURL : "http://localhost:9000",
+  baseURL : url,
   withCredentials : true
 })
 
 
 const axiosIntSecure = axios.create({
-  baseURL : "http://localhost:9000",
+  baseURL : url,
   withCredentials : true
 })
 
