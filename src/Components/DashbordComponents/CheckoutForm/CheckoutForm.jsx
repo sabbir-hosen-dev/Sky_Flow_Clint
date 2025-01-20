@@ -5,7 +5,8 @@ import { useAxiosSecure } from '../../../Hooks/useAxios';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import Spinner from './../../NotFound&Loading/Spinner';
 
-const CheckoutForm = ({ amount,data }) => {
+// eslint-disable-next-line react/prop-types
+const CheckoutForm = ({ amount,info }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState('');
@@ -40,36 +41,38 @@ const CheckoutForm = ({ amount,data }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements || !clientSecret) {
-        return;
+      return;
     }
-
-    // Confirm the card payment with the client secret
+  
     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-            card: elements.getElement(CardElement),
-        },
+      payment_method: { card: elements.getElement(CardElement) },
     });
-
+  
     if (error) {
-        setErrorMessage(`Payment failed: ${error.message}`); // Set error message
-    } else if (paymentIntent.status === 'requires_action') {
-        // Handle 3D Secure authentication if required
-        const { error: actionError, paymentIntent: confirmedPaymentIntent } = 
-            await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: elements.getElement(CardElement),
-                },
-            });
-
-        if (actionError) {
-            setErrorMessage(`Payment failed: ${actionError.message}`);
-        } else {
-            alert(`Payment Successful!\nAmount: $${(confirmedPaymentIntent.amount / 100).toFixed(2)}\nTransaction ID: ${confirmedPaymentIntent.id}`);
-        }
+      setErrorMessage(`Payment failed: ${error.message}`);
     } else if (paymentIntent.status === 'succeeded') {
-        alert(`Payment Successful!\nAmount: $${(paymentIntent.amount / 100).toFixed(2)}\nTransaction ID: ${paymentIntent.id}`);
+      const paymentData = {
+        userId: user._id, 
+        userEmail: user.email,
+        apartmentId: info?.apartmentId,
+        month: info?.month, 
+        rent: amount + discount, 
+        discount: discount, 
+        finalAmount: amount, 
+        paymentStatus: "paid",
+        paymentDate: new Date().toISOString(),
+        transactionId: paymentIntent.id
+      };
+  
+      try {
+        await axiosSecure.post('/payments', paymentData);
+        alert(`Payment Successful! Transaction ID: ${paymentIntent.id}`);
+      } catch (err) {
+        setErrorMessage("Payment recorded failed in database.");
+      }
     }
-};
+  };
+  
 
 
   return (

@@ -16,6 +16,7 @@ function Payment() {
   const [rent, setRent] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [coupon, setCoupon] = useState('');
+  const [selectedMonth, setSelectedMonth] = useState('');
 
   const { user } = useAuthContext();
   const axiosSecure = useAxiosSecure();
@@ -48,9 +49,7 @@ function Payment() {
   }, [profile.rent]);
   console.log(profile)
 
-  const info = {
 
-  }
 
   return (
     <div className="min-h-screen  p-6">
@@ -129,22 +128,18 @@ function Payment() {
             </div>
           </div>
           <div>
-            <label className="mb-3 block text-black dark:text-white">
-              Select Month
-            </label>
-            <select className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>Septembar</option>
-              <option>Octobar</option>
-              <option>Novembar</option>
-              <option>Descember</option>
+            <label className="mb-3 block text-black dark:text-white">Select Month</label>
+            <select
+              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              value={selectedMonth}
+              onChange={(e) => setSelectedMonth(e.target.value)}
+            >
+              {[
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+              ].map((month) => (
+                <option key={month} value={month}>{month}</option>
+              ))}
             </select>
           </div>
           <div className="flex gap-2">
@@ -164,7 +159,7 @@ function Payment() {
           </div>
         </form>
         <Elements stripe={stripePromise}>
-          <CheckoutForm amount={rent - discount} />
+          <CheckoutForm amount={rent - discount}  info={{ month: selectedMonth, apartmentId: profile.apartmentNo }} />
         </Elements>
         <div className="p-4 bg-transparent border-[1.5px] border-stroke text-textT rounded-lg">
           <p className="text-sm font-medium">
