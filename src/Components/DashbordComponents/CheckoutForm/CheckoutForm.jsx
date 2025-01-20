@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { useAxiosSecure } from '../../../Hooks/useAxios';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import Spinner from './../../NotFound&Loading/Spinner';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
 
 const CheckoutForm = ({ amount,info }) => {
   const stripe = useStripe();
@@ -14,6 +17,7 @@ const CheckoutForm = ({ amount,info }) => {
   const { user } = useAuthContext();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(''); // state for error message
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -67,7 +71,8 @@ const CheckoutForm = ({ amount,info }) => {
   
       try {
         await axiosSecure.post('/payments/save', paymentData);
-        alert(`Payment Successful! Transaction ID: ${paymentIntent.id}`);
+      toast.success(`Payment Successful! Transaction ID: ${paymentIntent.id}`);
+        navigate("/dashboard/payment-history")
       } catch (error) {
         setErrorMessage("Payment recorded failed in database.",error);
       }
