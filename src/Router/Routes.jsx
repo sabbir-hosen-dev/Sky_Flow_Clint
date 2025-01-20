@@ -17,6 +17,7 @@ import ManageMember from '../Pages/Dashbord/ManageMember';
 import MemberRoute from './MemberRoute';
 import Payment from '../Pages/Dashbord/Payment';
 import ManageCoupons from '../Pages/Dashbord/ManageCoupons';
+import PaymentHistory from '../Pages/Dashbord/PaymentHistory';
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,14 @@ const router = createBrowserRouter([
         element: (
           <MemberRoute>
             <Payment />
+          </MemberRoute>
+        ),
+      },
+      {
+        path: 'payment-history',
+        element: (
+          <MemberRoute>
+            <PaymentHistory />
           </MemberRoute>
         ),
       },

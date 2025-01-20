@@ -48,3 +48,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(241, 145, 61); /* Darker blue on hover */
 }
+.InputElement{
+  color: #bec5c5;
+}

@@ -12,31 +12,31 @@ import toast from 'react-hot-toast';
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY); // Use your public key here
 
 function Payment() {
-  // eslint-disable-next-line no-unused-vars
   const [rent, setRent] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [coupon, setCoupon] = useState('');
-  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedMonth, setSelectedMonth] = useState(new Date().toLocaleString('en-US', { month: 'long' }));
+
 
   const { user } = useAuthContext();
   const axiosSecure = useAxiosSecure();
 
   const applyCoupon = async () => {
-    if (!coupon) return toast.error("Please enter a coupon code");
-  
+    if (!coupon) return toast.error('Please enter a coupon code');
+
     try {
       const res = await axiosInt.get(`/coupons/${coupon}`);
-      setDiscount(res.data.discountPercentage * rent /100 );
+      setDiscount((res.data.discountPercentage * rent) / 100);
       toast.success(res.data.description);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Invalid or inactive coupon code");
+      toast.error(
+        error.response?.data?.message || 'Invalid or inactive coupon code'
+      );
       setDiscount(0);
     }
   };
 
-  const {
-    data: profile = {},
-  } = useQuery({
+  const { data: profile = {} } = useQuery({
     queryKey: ['members'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/profile?email=${user.email}`);
@@ -45,11 +45,10 @@ function Payment() {
   });
 
   useEffect(() => {
-    setRent(profile.rent)
+    setRent(profile.rent);
   }, [profile.rent]);
-  console.log(profile)
-
-
+  
+  // console.log(profile);
 
   return (
     <div className="min-h-screen  p-6">
@@ -128,17 +127,30 @@ function Payment() {
             </div>
           </div>
           <div>
-            <label className="mb-3 block text-black dark:text-white">Select Month</label>
+            <label className="mb-3 block text-black dark:text-white">
+              Select Month
+            </label>
             <select
               className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               value={selectedMonth}
-              onChange={(e) => setSelectedMonth(e.target.value)}
-            >
+              onChange={e => setSelectedMonth(e.target.value)}>
               {[
-                'January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'
-              ].map((month) => (
-                <option key={month} value={month}>{month}</option>
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+              ].map(month => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
               ))}
             </select>
           </div>
@@ -159,12 +171,19 @@ function Payment() {
           </div>
         </form>
         <Elements stripe={stripePromise}>
-          <CheckoutForm amount={rent - discount}  info={{ month: selectedMonth, apartmentId: profile.apartmentNo }} />
+          <CheckoutForm
+            amount={rent - discount}
+            info={{
+              month: selectedMonth,
+              apartmentId: profile.apartmentId,
+              discount: discount,
+              finalAmount: rent - discount,
+              rent :rent
+            }}
+          />
         </Elements>
         <div className="p-4 bg-transparent border-[1.5px] border-stroke text-textT rounded-lg">
-          <p className="text-sm font-medium">
-            Original Rent: ${rent}
-          </p>
+          <p className="text-sm font-medium">Original Rent: ${rent}</p>
           <p className="text-sm font-medium text-green-600">
             Discount: -${discount.toFixed(2)}
           </p>
