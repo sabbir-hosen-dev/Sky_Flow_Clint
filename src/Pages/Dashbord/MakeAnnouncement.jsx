@@ -1,9 +1,11 @@
+import Breadcrumb from "../../Components/DashbordComponents/BreadCrumb/BreadCrumb"
 
 
 function MakeAnnouncement() {
   return (
     <div>
-      make Anounce ment
+      <Breadcrumb pageName="Announcements" />
+    
     </div>
   )
 }

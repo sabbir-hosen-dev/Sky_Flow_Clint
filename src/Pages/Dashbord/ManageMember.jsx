@@ -4,6 +4,7 @@ import { useAxiosSecure } from '../../Hooks/useAxios';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import toast from "react-hot-toast";
+import Breadcrumb from "../../Components/DashbordComponents/BreadCrumb/BreadCrumb";
 
 function ManageMember() {
   // Fetch agreements
@@ -37,6 +38,7 @@ function ManageMember() {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+      <Breadcrumb pageName="Manage Members" />
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>

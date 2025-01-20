@@ -3,6 +3,7 @@ import { useAxiosSecure } from '../../Hooks/useAxios';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import useAuthContext from '../../Hooks/useAuthContext';
+import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
 
 function PaymentHistory() {
   const { user } = useAuthContext();
@@ -27,9 +28,10 @@ function PaymentHistory() {
 
   if (isLoading) return <Spinner />;
   if (error) return <DataNotFound />;
-  console.log(history);
+  // console.log(history);
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+      <Breadcrumb  pageName="Payment History"/>
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>
