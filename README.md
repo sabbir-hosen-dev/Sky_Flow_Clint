@@ -1,6 +1,4 @@
-Here is the updated **README.md** file with the added package information under the **Tech Stack** section:
 
-```markdown
 # SkyRent
 
 SkyRent is a **Building Management System (BMS)** designed for managing apartments, tenants, and rent payments efficiently.
@@ -125,8 +123,3 @@ Open your browser and go to [http://localhost:3000](http://localhost:3000) to vi
 4. Push to the branch (`git push origin feature-branch`)
 5. Create a new Pull Request
 
-## License  
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This now includes details about the **frontend packages** and **development dependencies** used in the project. Let me know if you'd like further changes.
