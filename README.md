@@ -1,4 +1,4 @@
-Here's the code for the **README.md** file:
+Here is the updated **README.md** file with the added package information under the **Tech Stack** section:
 
 ```markdown
 # SkyRent
@@ -29,6 +29,31 @@ SkyRent is a **Building Management System (BMS)** designed for managing apartmen
 - **Database:** MongoDB  
 - **Authentication:** Firebase, JWT  
 - **Payments:** Stripe
+
+### Packages Used
+- **Frontend:**
+  - `@stripe/react-stripe-js`: For Stripe integration
+  - `@tanstack/react-query`: For data fetching
+  - `axios`: For making HTTP requests
+  - `firebase`: For authentication
+  - `formik`: For handling forms
+  - `framer-motion`: For animations
+  - `leaflet`: For map integration
+  - `react-router-dom`: For routing
+  - `react-icons`: For icons
+  - `react-leaflet`: For map integration with React
+  - `swiper`: For carousel components
+  - `yup`: For schema validation
+
+- **Development Dependencies:**
+  - `@eslint/js`: For linting
+  - `@types/react`: TypeScript types for React
+  - `@vitejs/plugin-react`: Vite plugin for React
+  - `eslint`: For linting
+  - `eslint-plugin-react`: For React-specific linting rules
+  - `postcss`: For CSS post-processing
+  - `tailwindcss`: For utility-first CSS framework
+  - `vite`: For fast build tool
 
 ## Setup and Installation  
 
@@ -104,4 +129,4 @@ Open your browser and go to [http://localhost:3000](http://localhost:3000) to vi
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-This code provides a structured and clear **README.md** file for your project. Let me know if you need any further adjustments.
+This now includes details about the **frontend packages** and **development dependencies** used in the project. Let me know if you'd like further changes.
