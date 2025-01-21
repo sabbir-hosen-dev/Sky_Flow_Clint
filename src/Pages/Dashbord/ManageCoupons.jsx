@@ -1,16 +1,20 @@
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { BiEdit } from 'react-icons/bi';
 import { useQuery } from '@tanstack/react-query';
-import { axiosInt } from '../../Hooks/useAxios';
+import { axiosInt, useAxiosSecure } from '../../Hooks/useAxios';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function ManageCoupons() {
+  const axiosSecure = useAxiosSecure();
   const {
     data: coupons = {},
     isLoading,
     error,
+    refetch
   } = useQuery({
     queryKey: ['coupons'],
     queryFn: () => axiosInt.get('/coupons').then(res => res.data),
@@ -18,6 +22,22 @@ function ManageCoupons() {
 
   if (isLoading) return <Spinner />;
   if (error) return <DataNotFound />;
+
+  const handleDelete = async id => {
+    try {
+      const response = await axiosSecure.delete(`/coupons/${id}`);
+
+      if (response.data.success) {
+        toast.success('Coupons deleted successfully!');
+        refetch();
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Delete error:', error);
+      toast.error('Failed to delete Coupons.');
+    }
+  };
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -72,11 +92,11 @@ function ManageCoupons() {
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
+                    <Link to={`/dashboard/edit-coupon/${coupon._id}`} className="hover:text-primary">
+                      <BiEdit   />
+                    </Link>
                     <button className="hover:text-primary">
-                      <BiEdit />
-                    </button>
-                    <button className="hover:text-primary">
-                      <RiDeleteBin5Line />
+                      <RiDeleteBin5Line onClick={() => handleDelete(coupon._id)} />
                     </button>
                   </div>
                 </td>
@@ -84,6 +104,14 @@ function ManageCoupons() {
             ))}
           </tbody>
         </table>
+        <div className="flex w-full justify-between">
+        <div className=""></div>
+        <Link
+          to="/dashboard/add-coupon"
+          className="self-end bg-blue-700 px-4 py-2 mt-4 rounded-md font-bold hover:bg-primaryP transition-all duration-300 text-textT">
+          Add New
+        </Link>
+      </div>
       </div>
     </div>
   );

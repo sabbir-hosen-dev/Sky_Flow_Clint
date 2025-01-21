@@ -45,7 +45,7 @@ const AllApartments = () => {
       <MinMaxForm setCurrentPage={setCurrentPage} setFilter={setFilter} />
 
       {/* Apartment List */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {apartments.map(apartment => <ApartmentCard key={apartment._id} apartment={apartment} />
         )}
       </div>

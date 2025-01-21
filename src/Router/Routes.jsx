@@ -22,6 +22,8 @@ import Announcements from '../Pages/Dashbord/Announcements';
 import MakeAnnouncement from '../Pages/Dashbord/MakeAnnouncement';
 import AddAnnouncement from '../Pages/Dashbord/AddAnnouncement';
 import EditAnnouncement from '../Pages/Dashbord/EditAnnouncement';
+import AddCoupons from '../Pages/Dashbord/AddCopons';
+import EditCoupon from '../Pages/Dashbord/EditCoupon';
 
 
 const router = createBrowserRouter([
@@ -129,6 +131,30 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <EditAnnouncement />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'add-coupon',
+        element: (
+          <AdminRoute>
+            <AddCoupons />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'edit-coupon/:id',
+        element: (
+          <AdminRoute>
+            <EditCoupon />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'add-coupon',
+        element: (
+          <AdminRoute>
+            <AddCoupons />
           </AdminRoute>
         ),
       },

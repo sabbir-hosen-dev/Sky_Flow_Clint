@@ -16,14 +16,14 @@ function MinMaxForm({ setFilter }) {
   };
 
   return (
-    <div className="flex mb-5 justify-center items-center">
-      <form onSubmit={handleSubmit} className="flex gap-5  p-4 rounded-lg ">
-        <div className="relative">
+    <div className="flex wrap mb-5 justify-center items-center">
+      <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-3 md:grid-cols-3  p-4 rounded-lg ">
+        <div className="relative w-full">
           <input
             type="number"
             id="min"
             name="min"
-            className="peer bg-transparent h-10 w-72 rounded-lg text-gray-200 placeholder-transparent ring-2 px-3 ring-gray-200 dark:ring-gray-900 focus:ring-sky-600 focus:outline-none"
+            className="peer bg-transparent h-10 w-full  rounded-lg text-gray-200 placeholder-transparent ring-2 px-3 ring-gray-200 dark:ring-gray-900 focus:ring-sky-600 focus:outline-none"
             placeholder="500"
             required
             
@@ -35,12 +35,12 @@ function MinMaxForm({ setFilter }) {
           </label>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <input
             type="number"
             id="max"
             name="max"
-            className="peer bg-transparent h-10 w-72 rounded-lg text-gray-200 placeholder-transparent ring-2 px-3 ring-gray-200 dark:ring-gray-900 focus:ring-sky-600 focus:outline-none"
+            className="peer bg-transparent h-10 w-full  rounded-lg text-gray-200 placeholder-transparent ring-2 px-3 ring-gray-200 dark:ring-gray-900 focus:ring-sky-600 focus:outline-none"
             placeholder="1000"
             required
            
@@ -54,7 +54,7 @@ function MinMaxForm({ setFilter }) {
 
         <button
           type="submit"
-          className=" bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
+          className=" bg-orange-500 max-w-[70px] md:max-w-[100px] hover:bg-orange-600 text-white px-2 md:px-6 py-2 rounded-lg">
           Filter
         </button>
       </form>

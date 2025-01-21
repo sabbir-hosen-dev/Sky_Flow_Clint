@@ -29,7 +29,7 @@ function EditAnnouncement() {
     if (data) {
       setFormData({
         title: data.title || "",
-        status: data.active ? "Active" : "Inactive",
+        status: data.status ? "Active" : "Inactive",
         description: data.description || "",
       });
     }

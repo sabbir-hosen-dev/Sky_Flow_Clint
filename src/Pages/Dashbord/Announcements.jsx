@@ -24,7 +24,7 @@ function Announcements() {
   return (
     <div className="container mx-auto p-4">
       <Breadcrumb pageName="Announcements" />
-      <div>
+      <div className=''>
         {announcementsData.map(announcement => (
           <AnnouncementsCard
             key={announcement.announcementId}
