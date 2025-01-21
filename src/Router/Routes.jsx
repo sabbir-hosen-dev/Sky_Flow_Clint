@@ -20,6 +20,8 @@ import ManageCoupons from '../Pages/Dashbord/ManageCoupons';
 import PaymentHistory from '../Pages/Dashbord/PaymentHistory';
 import Announcements from '../Pages/Dashbord/Announcements';
 import MakeAnnouncement from '../Pages/Dashbord/MakeAnnouncement';
+import AddAnnouncement from '../Pages/Dashbord/AddAnnouncement';
+
 
 const router = createBrowserRouter([
   {
@@ -110,6 +112,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <MakeAnnouncement />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'add-announcement',
+        element: (
+          <AdminRoute>
+            <AddAnnouncement/>
           </AdminRoute>
         ),
       },

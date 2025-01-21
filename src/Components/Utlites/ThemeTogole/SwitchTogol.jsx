@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BiMoon, BiSun } from 'react-icons/bi';
 import useThemeContext from '../../../Hooks/useThemeContext';
 
+
 const SwitchTOgole = () => {
 
   const { theme,setTheme } = useThemeContext();

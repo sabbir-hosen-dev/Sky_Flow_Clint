@@ -30,7 +30,7 @@ function MakeAnnouncement() {
           
 
           <div className="flex justify-between">
-            <div className=" ">
+            <div className=" w-full ">
             <div>
               <h2 className="font-bold text-lg">{announcement.title}</h2>
               <p>{announcement.description}</p>
@@ -64,7 +64,7 @@ function MakeAnnouncement() {
 
       <div className="flex w-full justify-between">
         <div className=""></div>
-        <Link to="/add-announcement" className="self-end bg-blue-700 px-4 py-2 rounded-md font-bold hover:bg-primaryP transition-all duration-300 text-textT">Add New</Link>
+        <Link to="/dashboard/add-announcement" className="self-end bg-blue-700 px-4 py-2 rounded-md font-bold hover:bg-primaryP transition-all duration-300 text-textT">Add New</Link>
       </div>
     </div>
   );
