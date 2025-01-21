@@ -21,6 +21,7 @@ import PaymentHistory from '../Pages/Dashbord/PaymentHistory';
 import Announcements from '../Pages/Dashbord/Announcements';
 import MakeAnnouncement from '../Pages/Dashbord/MakeAnnouncement';
 import AddAnnouncement from '../Pages/Dashbord/AddAnnouncement';
+import EditAnnouncement from '../Pages/Dashbord/EditAnnouncement';
 
 
 const router = createBrowserRouter([
@@ -120,6 +121,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddAnnouncement/>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'edit-announcement/:id',
+        element: (
+          <AdminRoute>
+            <EditAnnouncement />
           </AdminRoute>
         ),
       },

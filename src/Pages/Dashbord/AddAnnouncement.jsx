@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 function AddAnnouncement() {
   const axiosSecure = useAxiosSecure();
   const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
+
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
