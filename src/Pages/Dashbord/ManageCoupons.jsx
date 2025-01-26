@@ -7,6 +7,7 @@ import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function ManageCoupons() {
   const axiosSecure = useAxiosSecure();
@@ -42,6 +43,7 @@ function ManageCoupons() {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <Breadcrumb pageName="Manage Coupons" />
+      <Title title='Manage Coupons' />
      
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">

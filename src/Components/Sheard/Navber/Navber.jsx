@@ -45,7 +45,9 @@ function Navber({ states }) {
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
        
+          <div className=" mr-3">
           <SwitchTOgole />
+          </div>
       
           {/* User Dropdown */}
           {user.email ? (
@@ -114,7 +116,7 @@ function Navber({ states }) {
           ) : (
             <Link
               to="/signin"
-              className="pt-2 pb-2 flex justify-center items-center  px-5 bg-primaryP rounded-md font-bold shadow-sm  text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 ">
+              className="pt-2 ml-9 pb-2 flex justify-center items-center  px-5 bg-primaryP rounded-md font-bold shadow-sm  text-white mx-auto transition-all  duration-500 hover:bg-primaryP/80 ">
               Login
             </Link>
           )}

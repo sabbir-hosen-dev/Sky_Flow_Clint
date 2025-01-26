@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function EditCoupon() {
   const axiosSecure = useAxiosSecure();
@@ -37,7 +38,7 @@ function EditCoupon() {
     }
   }, [data]);
 
-  console.log(data)
+  // console.log(data)
 
   // Handle input changes
   const handleChange = e => {
@@ -65,9 +66,11 @@ function EditCoupon() {
       setIsLoading(false);
     }
   };
-console.log(formData.isActive)
+// console.log(formData.isActive)
   return (
     <div>
+      <Title title='Edit Coupon' />
+
       <Breadcrumb pageName="Edit Coupon" />
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <form onSubmit={handleSubmit}>

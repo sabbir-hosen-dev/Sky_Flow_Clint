@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
 import { useAxiosSecure } from '../../Hooks/useAxios';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function AddCoupons() {
   const axiosSecure = useAxiosSecure();
@@ -37,6 +38,8 @@ function AddCoupons() {
 
   return (
     <div>
+      <Title title='Add Coupon' />
+
       <Breadcrumb pageName="Add Coupon" />
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <form onSubmit={handleSubmit}>

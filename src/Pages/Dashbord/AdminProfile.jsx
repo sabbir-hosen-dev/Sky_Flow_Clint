@@ -1,11 +1,14 @@
 // import { Link } from 'react-router-dom';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 import useAuthContext from '../../Hooks/useAuthContext';
 
 function AdminProfile() {
   const { user } = useAuthContext();
   return (
     <div>
+      <Title title='Admin Profile' />
+
       <Breadcrumb pageName="Admin Profile" />
 
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">

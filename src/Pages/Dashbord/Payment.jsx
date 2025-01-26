@@ -8,6 +8,7 @@ import useAuthContext from '../../Hooks/useAuthContext';
 import { axiosInt, useAxiosSecure } from '../../Hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY); // Use your public key here
 
@@ -53,6 +54,8 @@ function Payment() {
   return (
     <div className="min-h-screen  p-6">
       <Breadcrumb pageName="Payment" />
+      <Title title='Payment' />
+      
       <section className="container mx-auto max-w-4xl bg-white dark:bg-boxdark p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-textT mb-4">
           Payment Details

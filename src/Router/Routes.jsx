@@ -56,6 +56,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
+    errorElement : <ErrorPages />,
     element: (
       <PrivetRoute>
         <DashbordLayout />

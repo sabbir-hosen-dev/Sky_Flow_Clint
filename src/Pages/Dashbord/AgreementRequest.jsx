@@ -4,6 +4,7 @@ import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import toast from 'react-hot-toast';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function AgreementRequest() {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +22,7 @@ function AgreementRequest() {
       return res.data;
     },
   });
-  console.log(agreements);
+  // console.log(agreements);
 
   if (isLoading) return <Spinner />;
   if (error) return <DataNotFound />;
@@ -33,7 +34,7 @@ function AgreementRequest() {
       status: 'approved',
       apartmentId: apartmentId,
     };
-    console.log(apartmentId)
+    // console.log(apartmentId)
 
     axiosSecure
       .patch(`/agreements/update/${id}`, newData)
@@ -47,7 +48,7 @@ function AgreementRequest() {
   };
 
   const handleRejected = id => {
-    console.log('Rejecting agreement ID:', id);
+    // console.log('Rejecting agreement ID:', id);
     axiosSecure
       .patch(`/agreements/reject/${id}`)
       .then(()=> {
@@ -62,6 +63,8 @@ function AgreementRequest() {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <Breadcrumb pageName="Aggrement Requests" />
+      <Title title='Agreement Requests' />
+
     
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">

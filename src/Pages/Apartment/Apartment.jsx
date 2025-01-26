@@ -16,6 +16,7 @@ import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import useAuthContext from '../../Hooks/useAuthContext';
 import toast from 'react-hot-toast';
 import Loadding from '../Loadding';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function Apartment() {
   const { id } = useParams();
@@ -100,7 +101,9 @@ function Apartment() {
 
   return (
     <div className="wrap">
+      <Title title='Apartment' />
       <GallerySlider images={images} />
+
 
       <div className=" bg-secondaryS/5 p-6 dark:border-gray-900 rounded-lg border">
         {/* Header Section */}

@@ -1,3 +1,5 @@
+import { AiOutlineEyeInvisible } from "react-icons/ai"; 
+import { AiOutlineEye } from "react-icons/ai"; 
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import login from '../../../assets/signin.png';
 import { Link, useNavigate } from 'react-router-dom';
@@ -5,10 +7,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import useAuthContext from '../../../Hooks/useAuthContext';
 import GoogleSignBtn from '../../../Components/Utlites/GoogleSignBtn/GoogleSignBtn';
+import Title from '../../../Components/Utlites/Helmate/Helmate';
+import { useState } from 'react';
 function SignIn() {
 
   const {user,setUser,loginUser} = useAuthContext();
   const navigate = useNavigate();
+  const [eye,setEye] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -37,6 +42,7 @@ function SignIn() {
   };
   return (
     <div className=" relative py-10 lg:py-20">
+      <Title title='Sign In' />
       <Link
         to="/"
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
@@ -73,6 +79,9 @@ function SignIn() {
                 </div>
                 {/* passwornd fild  */}
                 <div className="relative ">
+                 <div onClick={() => setEye(!eye)} className="absolute  top-1/3 cursor-pointer right-4">
+                 {!eye ? <AiOutlineEye /> :<AiOutlineEyeInvisible />}
+                 </div>
                   <p
                     className="bg-secondaryS pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-textT
                       absolute">
@@ -82,7 +91,7 @@ function SignIn() {
                     name="password"
                     placeholder="*******"
                     required
-                    type="password"
+                    type={eye ? "password" : "text"}
                     className="bg-secondaryS border placeholder-gray-400 focus:outline-none 
                       focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block 
                       border-gray-300 text-textT rounded-md"

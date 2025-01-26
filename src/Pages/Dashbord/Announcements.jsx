@@ -4,6 +4,7 @@ import { axiosInt } from '../../Hooks/useAxios';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function Announcements() {
   const {
@@ -23,6 +24,8 @@ function Announcements() {
 
   return (
     <div className="container mx-auto p-4">
+      <Title title='Announcements' />
+
       <Breadcrumb pageName="Announcements" />
       <div className=''>
         {announcementsData.map(announcement => (

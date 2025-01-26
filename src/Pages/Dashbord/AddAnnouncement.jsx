@@ -3,6 +3,7 @@ import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrum
 import { useAxiosSecure } from '../../Hooks/useAxios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function AddAnnouncement() {
   const axiosSecure = useAxiosSecure();
@@ -43,6 +44,8 @@ function AddAnnouncement() {
 
   return (
     <div>
+      <Title title='Add Announcement' />
+
       <Breadcrumb pageName="Add Announcement" />
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <form onSubmit={handleSubmit}>

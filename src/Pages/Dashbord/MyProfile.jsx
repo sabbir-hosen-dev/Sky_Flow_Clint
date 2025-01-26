@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useAxiosSecure } from '../../Hooks/useAxios';
 import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 const MyProfile = () => {
   const { user } = useAuthContext();
@@ -23,14 +24,15 @@ const MyProfile = () => {
     },
   });
 
-  console.log(profile);
+  // console.log(profile);
   if (isLoading) return <Spinner />;
   if (error) return <DataNotFound />;
 
   return (
     <div>
       <Breadcrumb pageName="My Profile" />
-
+      <Title title='My Profile' />
+    
       <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
         {/* Profile Cover Image */}
         <div className="relative h-36 md:h-52 bg-gray-300">

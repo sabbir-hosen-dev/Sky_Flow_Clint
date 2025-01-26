@@ -6,6 +6,7 @@ import ApartmentCard from '../../../Components/HomeContent/Apartment/ApartmentCa
 import MinMaxForm from '../../../Components/HomeContent/Apartment/MinMaxForm';
 import Loadding from '../../Loadding';
 import DataNotFound from '../../../Components/NotFound&Loading/DataNotFound';
+import Title from '../../../Components/Utlites/Helmate/Helmate';
 
 const AllApartments = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,6 +41,7 @@ const AllApartments = () => {
 
   return (
     <div className="p-5 wrap">
+      <Title title='Apartments' />
       <h2 className="text-xl font-bold mb-4">Apartments</h2>
 
       <MinMaxForm setCurrentPage={setCurrentPage} setFilter={setFilter} />

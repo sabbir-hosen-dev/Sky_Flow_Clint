@@ -16,6 +16,7 @@ import toast from 'react-hot-toast';
 import { useState } from 'react';
 import load from '../../../assets/loading.gif';
 import saveUser from '../../../Api/saveUser';
+import Title from '../../../Components/Utlites/Helmate/Helmate';
 
 function SignUp() {
   const SignUpSchema = Yup.object().shape({
@@ -118,6 +119,7 @@ function SignUp() {
 
   return (
     <div className=" relative py-10 lg:py-20">
+      <Title title='Sign Up' />
       <Link
         to="/"
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">

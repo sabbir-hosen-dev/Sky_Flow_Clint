@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Breadcrumb from "../../Components/DashbordComponents/BreadCrumb/BreadCrumb";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import Title from "../../Components/Utlites/Helmate/Helmate";
 
 function EditAnnouncement() {
   const axiosSecure = useAxiosSecure();
@@ -59,6 +60,8 @@ function EditAnnouncement() {
 
   return (
     <div>
+      <Title title='Edit Announcement' />
+
       <Breadcrumb pageName="Edit Announcement" />
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <form onSubmit={handleSubmit}>

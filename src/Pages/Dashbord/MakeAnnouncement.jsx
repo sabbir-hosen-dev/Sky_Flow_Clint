@@ -7,6 +7,7 @@ import Spinner from '../../Components/NotFound&Loading/Spinner';
 import DataNotFound from '../../Components/NotFound&Loading/DataNotFound';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Title from '../../Components/Utlites/Helmate/Helmate';
 
 function MakeAnnouncement() {
   const {
@@ -40,6 +41,8 @@ function MakeAnnouncement() {
   if (error) return <DataNotFound />;
   return (
     <div>
+      <Title title='Make Announcement' />
+
       <Breadcrumb pageName="Announcements" />
 
       {announcementsData?.map(announcement => (
