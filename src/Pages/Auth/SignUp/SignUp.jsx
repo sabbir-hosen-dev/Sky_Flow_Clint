@@ -94,7 +94,7 @@ function SignUp() {
 
         // Reset form and navigate to sign-in page
         resetForm();
-        navigate('/signin');
+        navigate('/');
       }
     } catch (error) {
       console.error('Error during user creation:', error.message);

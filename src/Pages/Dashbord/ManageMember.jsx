@@ -23,7 +23,8 @@ function ManageMember() {
       return res.data;
     },
   });
-
+ 
+  console.log(members)
  
   const handleDelet = (id,email) => {
       axiosSecure.patch(`/user/role-update/${id}?email=${email}`)

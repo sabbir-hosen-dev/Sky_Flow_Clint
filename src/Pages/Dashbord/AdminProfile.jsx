@@ -1,13 +1,29 @@
 // import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import Breadcrumb from '../../Components/DashbordComponents/BreadCrumb/BreadCrumb';
+import ApoantmentChart from '../../Components/DashbordComponents/Charts/ApoatmentChart';
 import Title from '../../Components/Utlites/Helmate/Helmate';
 import useAuthContext from '../../Hooks/useAuthContext';
+import { axiosInt } from '../../Hooks/useAxios';
 
 function AdminProfile() {
-  const { user } = useAuthContext();
+  const { user: authUser } = useAuthContext();
+
+  const {
+    data = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['all-users'],
+    queryFn: () => axiosInt.get('/all-users').then(res => res.data),
+  });
+
+  const user = data.filter(user => user.role == 'user');
+  const member = data.filter(user => user.role == 'member');
+
   return (
     <div>
-      <Title title='Admin Profile' />
+      <Title title="Admin Profile" />
 
       <Breadcrumb pageName="Admin Profile" />
 
@@ -53,7 +69,7 @@ function AdminProfile() {
           <div className="relative overflow-hidden z-30 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20  backdrop-blur sm:h-44 sm:max-w-44 ">
             <div className="w-full  h-full overflow-hidden drop-shadow-2">
               <img
-                src={user.photo}
+                src={authUser.photo}
                 className="w-full h-full object-cover "
                 alt=""
               />
@@ -61,12 +77,27 @@ function AdminProfile() {
           </div>
           <div className="mt-4">
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-              {user.name}
+              {authUser.name}
             </h3>
-            <p className="font-medium">{user.email}</p>
-            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
-              <div className=""></div>
-              <p className="text-center"> Comming Sooon!</p>
+            <p className="font-medium">{authUser.email}</p>
+            <div className="flex justify-center items-center">
+              <div className="mx-auto mt-4.5 mb-5.5  flex gap-2  ">
+                <div
+                  className="
+              rounded-md border min-w-[150px] w-full border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+                  Total users:
+                  <div className="font-bold">{user.length}</div>
+                </div>
+                <div
+                  className="
+              rounded-md border w-full min-w-[150px] border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+                  Total Member:
+                  <div className="font-bold">{member.length}</div>
+                </div>
+              </div>
+            </div>
+            <div className="">
+              <ApoantmentChart />
             </div>
           </div>
         </div>
