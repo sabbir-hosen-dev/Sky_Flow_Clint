@@ -5,6 +5,7 @@ import ApoantmentChart from '../../Components/DashbordComponents/Charts/Apoatmen
 import Title from '../../Components/Utlites/Helmate/Helmate';
 import useAuthContext from '../../Hooks/useAuthContext';
 import { axiosInt } from '../../Hooks/useAxios';
+import Spinner from '../../Components/NotFound&Loading/Spinner';
 
 function AdminProfile() {
   const { user: authUser } = useAuthContext();
@@ -12,7 +13,7 @@ function AdminProfile() {
   const {
     data = [],
     isLoading,
-    error,
+    // error,
   } = useQuery({
     queryKey: ['all-users'],
     queryFn: () => axiosInt.get('/all-users').then(res => res.data),
@@ -81,20 +82,24 @@ function AdminProfile() {
             </h3>
             <p className="font-medium">{authUser.email}</p>
             <div className="flex justify-center items-center">
-              <div className="mx-auto mt-4.5 mb-5.5  flex gap-2  ">
-                <div
-                  className="
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <div className="mx-auto mt-4.5 mb-5.5  flex gap-2  ">
+                  <div
+                    className="
               rounded-md border min-w-[150px] w-full border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
-                  Total users:
-                  <div className="font-bold">{user.length}</div>
-                </div>
-                <div
-                  className="
+                    Total users:
+                    <div className="font-bold">{user.length}</div>
+                  </div>
+                  <div
+                    className="
               rounded-md border w-full min-w-[150px] border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
-                  Total Member:
-                  <div className="font-bold">{member.length}</div>
+                    Total Member:
+                    <div className="font-bold">{member.length}</div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="">
               <ApoantmentChart />
