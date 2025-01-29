@@ -61,7 +61,7 @@ SkyRent is a **Building Management System (BMS)** designed for managing apartmen
 
   ## Home Page
 
-  <img style="width: 100%" src="https://i.ibb.co/DzYMfzh/sky-Flow-Home-Page.png">
+  <img style="width: 100%" src="./src/assets/skyFlow/skyFlow-Home-Page.png">
 
 ## Setup and Installation
 
