@@ -9,6 +9,7 @@ import useAuthContext from '../../../Hooks/useAuthContext';
 import GoogleSignBtn from '../../../Components/Utlites/GoogleSignBtn/GoogleSignBtn';
 import Title from '../../../Components/Utlites/Helmate/Helmate';
 import { useState } from 'react';
+import AdminInfoButton from "../../../Components/Cadintials/Caditantioals";
 function SignIn() {
 
   const {user,setUser,loginUser} = useAuthContext();
@@ -48,7 +49,7 @@ function SignIn() {
         className="wrap flex items-center gap-2 hover:text-primaryP transition-colors duration-300  font-bold">
         <AiOutlineArrowLeft /> Back to Home
       </Link>
-      
+        <AdminInfoButton />
       <div
         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
           xl:px-5 lg:flex-row">

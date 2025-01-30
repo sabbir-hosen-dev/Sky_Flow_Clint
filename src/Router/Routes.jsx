@@ -11,7 +11,7 @@ import DashbordLayout from '../Layout/DashbordLayout';
 import AdminRoute from './AdminRoute';
 import AdminProfile from '../Pages/Dashbord/AdminProfile';
 import MyProfile from '../Pages/Dashbord/MyProfile';
-import DashboardRedirect from '../Utility/DashbordRedirect';
+
 import AgreementRequest from '../Pages/Dashbord/AgreementRequest';
 import ManageMember from '../Pages/Dashbord/ManageMember';
 import MemberRoute from './MemberRoute';
@@ -63,12 +63,6 @@ const router = createBrowserRouter([
       </PrivetRoute>
     ),
     children: [
-      {
-        index: true,
-        element: <DashboardRedirect />,
-      },
-
-      // User Profile Route
       {
         path: 'profile',
         element: <MyProfile />,

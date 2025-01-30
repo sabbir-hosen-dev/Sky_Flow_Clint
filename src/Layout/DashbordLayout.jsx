@@ -1,15 +1,34 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from './../Components/DashbordComponents/Sidebar/Sidebar';
 import Header from '../Components/DashbordComponents/Header/Header';
 import "../Css/DashbordColor.css"
 import useAuthContext from '../Hooks/useAuthContext';
 import Loadding from '../Pages/Loadding';
+import useRole from '../Hooks/useRole';
 
 
 function DashbordLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const {loadding} = useAuthContext();
+
+  const [role, isLoading] = useRole();
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  useEffect(() => {
+    if (isLoading) return; // Wait until the role is fetched
+  
+    if (location.pathname === "/dashboard") {
+      if (role === "admin") {
+        navigate("/dashboard/admin-profile");
+      } else {
+        navigate("/dashboard/profile");
+      }
+    }
+  }, [location.pathname, navigate, role, isLoading]);
+  
+
   {loadding && <Loadding />}
   return (
     <div className="dark:bg-boxdark-2 bg-white dark:text-bodydark">

@@ -7,10 +7,12 @@ import useAuthContext from '../../../Hooks/useAuthContext';
 import SwitchTOgole from '../../Utlites/ThemeTogole/SwitchTogol';
 import useHandleLogOut from '../../../Hooks/useLogout';
 
+
 function Navber({ states }) {
   const { menuOpen, setMenuOpen, userDropdownOpen, setUserDropdownOpen } =
     states;
   const { user } = useAuthContext();
+
 
   const [isSticky, setIsSticky] = useState(false);
 
@@ -24,7 +26,6 @@ function Navber({ states }) {
   }, []);
 
   const handleLogout = useHandleLogOut();
-
 
   return (
     <nav
@@ -43,12 +44,10 @@ function Navber({ states }) {
           </span>
         </Link>
         <div className="flex justify-center items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-
-       
           <div className=" mr-3">
-          <SwitchTOgole />
+            <SwitchTOgole />
           </div>
-      
+
           {/* User Dropdown */}
           {user.email ? (
             <div className="relative">
@@ -88,12 +87,12 @@ function Navber({ states }) {
                     {/* <li className="ml-2">
                       
                       {/* <div onClick={() => setUserDropdownOpen(false)}> */}
-                      {/* <SwitchTOgole /> */}
-                      {/* </div> */}
+                    {/* <SwitchTOgole /> */}
+                    {/* </div> */}
                     {/* </li> */}
                     <li>
                       <Link
-                        onClick={() => setUserDropdownOpen(false)}
+                        // onClick={() => {set}}
                         to="/dashboard"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                         Dashboard
