@@ -60,7 +60,7 @@ function ManageMember() {
             </tr>
           </thead>
           <tbody>
-            {members.map(agreement => (
+            {members?.map(agreement => (
               <tr
                 key={agreement._id}
                 className="border-b border-[#eee] dark:border-strokedark">
