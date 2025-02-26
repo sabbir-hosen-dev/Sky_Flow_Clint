@@ -10,6 +10,7 @@ const SwitchTOgole = () => {
   useEffect(() => {
     setTheme(enabled)
   },[enabled, setTheme])
+  
   return (
     <div className="">
       <label
